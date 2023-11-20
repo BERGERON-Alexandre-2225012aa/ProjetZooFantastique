@@ -1,4 +1,4 @@
-package ga2.projetzoofantastique;
+package ga2.projetzoofantastique.controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
