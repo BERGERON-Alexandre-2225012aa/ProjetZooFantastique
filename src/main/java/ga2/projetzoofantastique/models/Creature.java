@@ -41,6 +41,19 @@ public class Creature {
      * Enclos de la Creature
      */
     private Enclos enclos;
+    //Utilisés uniquement par les sous-classes
+    /**
+     * Temps avant la naissance de la créature en mois
+     */
+    protected int tempsAvantNaissance;
+    /**
+     * Nombre minimum de petits par portées de la créature
+     */
+    protected int porteeMinimum;
+    /**
+     * Nombre maximum de petits par portées de la créature
+     */
+    protected int porteeMaximum;
 
     /**
      * Constructeur de la classe Creature
@@ -128,6 +141,29 @@ public class Creature {
         return enclos;
     }
 
+    /**
+     * Getter du temps avant la naissance de la race de la créature
+     * @return
+     */
+    public int getTempsAvantNaissance() {
+        return tempsAvantNaissance;
+    }
+
+    /**
+     * Getter du nombre minimum de petits par portées de la race de la créature
+     * @return
+     */
+    public int getPorteeMinimum() {
+        return porteeMinimum;
+    }
+
+    /**
+     * Getter du nombre maximum de petits par portées de la race de la créature
+     * @return
+     */
+    public int getPorteeMaximum() {
+        return porteeMaximum;
+    }
     // Setters
 
     /**

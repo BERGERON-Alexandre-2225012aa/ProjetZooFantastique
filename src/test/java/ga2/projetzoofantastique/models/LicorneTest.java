@@ -17,7 +17,7 @@ class LicorneTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
-        Licorne licorne = new Licorne("Licorne1", "male", 25, 5, enclos, 9);
+        Licorne licorne = new Licorne("Licorne1", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs de la licorne doivent correspondre.
         String nom = "Licorne1";
@@ -28,6 +28,9 @@ class LicorneTest {
         int faim = 0;
         boolean sommeil = false;
         int sante = 2;
+        int tempsAvantNaissance = 11;
+        int porteeMinimum = 1;
+        int porteeMaximum = 1;
 
         // Les tests.
         assertEquals(nom, licorne.getNom());
@@ -39,6 +42,9 @@ class LicorneTest {
         assertEquals(sommeil, licorne.isSommeil());
         assertEquals(sante, licorne.getSante());
         assertEquals(enclos, licorne.getEnclos());
+        assertEquals(tempsAvantNaissance, licorne.getTempsAvantNaissance());
+        assertEquals(porteeMinimum, licorne.getPorteeMinimum());
+        assertEquals(porteeMaximum, licorne.getPorteeMaximum());
     }
 
 }

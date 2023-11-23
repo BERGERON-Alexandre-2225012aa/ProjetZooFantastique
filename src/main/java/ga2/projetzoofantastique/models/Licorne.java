@@ -1,8 +1,6 @@
 package ga2.projetzoofantastique.models;
 
 public class Licorne extends Vivipare implements Terrestre {
-    //Attributs
-
     /**
      * Constructeur de la classe Licorne
      * @param nom
@@ -10,14 +8,16 @@ public class Licorne extends Vivipare implements Terrestre {
      * @param poids
      * @param taille
      * @param enclos
-     * @param tempsAvantNaissance
      */
-    public Licorne(String nom, String sexe, double poids, double taille, Enclos enclos, int tempsAvantNaissance) {
+    public Licorne(String nom, String sexe, double poids, double taille, Enclos enclos) {
         super(nom, sexe, poids, taille, enclos);
+        this.tempsAvantNaissance = 11;
+        this.porteeMinimum = 1;
+        this.porteeMaximum = 1;
     }
 
     /**
-     * Méthode pour accouher
+     * Méthode pour mettre bas
      */
     @Override
     public void mettreBas() {
