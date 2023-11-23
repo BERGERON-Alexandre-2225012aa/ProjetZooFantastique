@@ -1,5 +1,8 @@
 package ga2.projetzoofantastique.models;
 
+/**
+ * Classe Creature
+ */
 public class Creature {
     // Attributs
     /**
