@@ -68,6 +68,9 @@ class EnclosTest {
         assertEquals(null, enclos.getMeute());
     }
 
+    /**
+     * Méthode de test des setters de Enclos
+     */
     @Test
     public void testSetters(){
         //On crée l'enclos.

@@ -1,5 +1,8 @@
 package ga2.projetzoofantastique.models;
 
+/**
+ * Classe abstraite Ovipare
+ */
 public abstract class Ovipare extends Creature {
     /**
      * Constructeur de la classe Ovipare
@@ -9,7 +12,7 @@ public abstract class Ovipare extends Creature {
     }
 
     /**
-     * Méthode pondre qui permet aux ovipares de pondre
+     * Méthode abstraite pondre qui permet aux ovipares de pondre
      */
     public abstract void pondre();
 }

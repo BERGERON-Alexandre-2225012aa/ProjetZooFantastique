@@ -1,5 +1,8 @@
 package ga2.projetzoofantastique.models;
 
+/**
+ * Classe abstraite Vivipare
+ */
 public abstract class Vivipare extends Creature {
 
     /**
