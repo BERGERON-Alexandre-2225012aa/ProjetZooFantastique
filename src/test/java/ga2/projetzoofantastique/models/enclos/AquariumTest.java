@@ -21,7 +21,7 @@ class AquariumTest {
      */
     @Test
     public void testConstructor() {
-        //On crée l'enclos.
+        //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
