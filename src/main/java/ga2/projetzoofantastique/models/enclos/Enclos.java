@@ -1,4 +1,8 @@
-package ga2.projetzoofantastique.models;
+package ga2.projetzoofantastique.models.enclos;
+
+import ga2.projetzoofantastique.models.colonies.Meute;
+import ga2.projetzoofantastique.models.ZooFantastique;
+import ga2.projetzoofantastique.models.creatures.Creature;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,6 @@
-package ga2.projetzoofantastique.models;
+package ga2.projetzoofantastique.models.enclos;
+
+import ga2.projetzoofantastique.models.ZooFantastique;
 
 /**
  * Classe Aquarium pour contenir des créatures aquatiques

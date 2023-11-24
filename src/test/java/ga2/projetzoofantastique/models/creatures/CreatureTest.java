@@ -1,5 +1,9 @@
-package ga2.projetzoofantastique.models;
+package ga2.projetzoofantastique.models.creatures;
 
+import ga2.projetzoofantastique.models.Maitre;
+import ga2.projetzoofantastique.models.ZooFantastique;
+import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.enclos.Enclos;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

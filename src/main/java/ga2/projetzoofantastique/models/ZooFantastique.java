@@ -1,5 +1,8 @@
 package ga2.projetzoofantastique.models;
 
+import ga2.projetzoofantastique.models.colonies.Colonie;
+import ga2.projetzoofantastique.models.enclos.Enclos;
+
 import java.util.ArrayList;
 
 public class ZooFantastique {
