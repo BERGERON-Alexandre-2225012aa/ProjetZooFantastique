@@ -1,5 +1,7 @@
 package ga2.projetzoofantastique.models;
 
+import java.util.ArrayList;
+
 /**
  * Classe Creature
  */
@@ -54,6 +56,10 @@ public class Creature {
      * Nombre maximum de petits par portées de la créature
      */
     protected int porteeMaximum;
+    /**
+     * Liste des mois correspondant à la saison des amours de la créature
+     */
+    protected ArrayList<Integer> moisSaisonAmour;
 
     /**
      * Constructeur de la classe Creature
@@ -163,6 +169,14 @@ public class Creature {
      */
     public int getPorteeMaximum() {
         return porteeMaximum;
+    }
+
+    /**
+     * Getter de la liste des mois correspondant à la saison des amours de la créature
+     * @return
+     */
+    public ArrayList<Integer> getMoisSaisonAmour() {
+        return moisSaisonAmour;
     }
     // Setters
 

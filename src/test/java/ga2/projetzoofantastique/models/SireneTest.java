@@ -2,6 +2,8 @@ package ga2.projetzoofantastique.models;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -31,6 +33,10 @@ class SireneTest {
         int tempsAvantNaissance = 9;
         int porteeMinimum = 1;
         int porteeMaximum = 3;
+        ArrayList<Integer> moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(7);
+        moisSaisonAmour.add(8);
+        moisSaisonAmour.add(9);
 
         // Les tests.
         assertEquals(nom, sirene.getNom());
@@ -45,6 +51,7 @@ class SireneTest {
         assertEquals(tempsAvantNaissance, sirene.getTempsAvantNaissance());
         assertEquals(porteeMinimum, sirene.getPorteeMinimum());
         assertEquals(porteeMaximum, sirene.getPorteeMaximum());
+        assertEquals(moisSaisonAmour, sirene.getMoisSaisonAmour());
     }
 
 }

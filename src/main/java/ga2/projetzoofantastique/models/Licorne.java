@@ -1,5 +1,7 @@
 package ga2.projetzoofantastique.models;
 
+import java.util.ArrayList;
+
 public class Licorne extends Vivipare implements Terrestre {
     /**
      * Constructeur de la classe Licorne
@@ -14,6 +16,10 @@ public class Licorne extends Vivipare implements Terrestre {
         this.tempsAvantNaissance = 11;
         this.porteeMinimum = 1;
         this.porteeMaximum = 1;
+        this.moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(4);
+        moisSaisonAmour.add(5);
+        moisSaisonAmour.add(6);
     }
 
     /**

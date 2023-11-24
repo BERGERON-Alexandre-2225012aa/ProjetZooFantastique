@@ -2,6 +2,8 @@ package ga2.projetzoofantastique.models;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -31,6 +33,10 @@ class LicorneTest {
         int tempsAvantNaissance = 11;
         int porteeMinimum = 1;
         int porteeMaximum = 1;
+        ArrayList<Integer> moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(4);
+        moisSaisonAmour.add(5);
+        moisSaisonAmour.add(6);
 
         // Les tests.
         assertEquals(nom, licorne.getNom());
@@ -45,6 +51,7 @@ class LicorneTest {
         assertEquals(tempsAvantNaissance, licorne.getTempsAvantNaissance());
         assertEquals(porteeMinimum, licorne.getPorteeMinimum());
         assertEquals(porteeMaximum, licorne.getPorteeMaximum());
+        assertEquals(moisSaisonAmour, licorne.getMoisSaisonAmour());
     }
 
     /**
@@ -70,6 +77,10 @@ class LicorneTest {
         int tempsAvantNaissance = 11;
         int porteeMinimum = 1;
         int porteeMaximum = 1;
+        ArrayList<Integer> moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(4);
+        moisSaisonAmour.add(5);
+        moisSaisonAmour.add(6);
 
         // Les tests.
         assertEquals(nom, licorne.getNom());
@@ -84,6 +95,7 @@ class LicorneTest {
         assertEquals(tempsAvantNaissance, licorne.getTempsAvantNaissance());
         assertEquals(porteeMinimum, licorne.getPorteeMinimum());
         assertEquals(porteeMaximum, licorne.getPorteeMaximum());
+        assertEquals(moisSaisonAmour, licorne.getMoisSaisonAmour());
     }
 
 }

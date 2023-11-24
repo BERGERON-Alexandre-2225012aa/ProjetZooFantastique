@@ -1,5 +1,7 @@
 package ga2.projetzoofantastique.models;
 
+import java.util.ArrayList;
+
 public class Sirene extends Vivipare implements Aquatique {
     /**
      * Constructeur de la classe SIrene
@@ -14,6 +16,10 @@ public class Sirene extends Vivipare implements Aquatique {
         this.tempsAvantNaissance = 9;
         this.porteeMinimum = 1;
         this.porteeMaximum = 3;
+        this.moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(7);
+        moisSaisonAmour.add(8);
+        moisSaisonAmour.add(9);
     }
 
     /**
