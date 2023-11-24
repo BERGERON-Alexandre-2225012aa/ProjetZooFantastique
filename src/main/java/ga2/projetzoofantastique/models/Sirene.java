@@ -2,6 +2,9 @@ package ga2.projetzoofantastique.models;
 
 import java.util.ArrayList;
 
+/**
+ * Classe Sirene, sous classe de Vivipare qui implémente l'interface Aquatique
+ */
 public class Sirene extends Vivipare implements Aquatique {
     /**
      * Constructeur de la classe SIrene

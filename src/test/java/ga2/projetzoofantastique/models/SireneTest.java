@@ -15,11 +15,11 @@ class SireneTest {
      */
     @Test
     public void testConstructor(){
-        // On crée la sirene.
+        // On crée la sirène.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
-        Sirene sirene = new Sirene("Sirene1", "male", 25, 5, enclos);
+        Aquarium aquarium = new Aquarium("Enclos1", 200, 20, zooFantastique, 10);
+        Sirene sirene = new Sirene("Sirene1", "male", 25, 5, aquarium);
 
         // On crée les éléments auxquels les attributs de la sirene doivent correspondre.
         String nom = "Sirene1";
@@ -47,7 +47,7 @@ class SireneTest {
         assertEquals(faim, sirene.getFaim());
         assertEquals(sommeil, sirene.isSommeil());
         assertEquals(sante, sirene.getSante());
-        assertEquals(enclos, sirene.getEnclos());
+        assertEquals(aquarium, sirene.getEnclos());
         assertEquals(tempsAvantNaissance, sirene.getTempsAvantNaissance());
         assertEquals(porteeMinimum, sirene.getPorteeMinimum());
         assertEquals(porteeMaximum, sirene.getPorteeMaximum());

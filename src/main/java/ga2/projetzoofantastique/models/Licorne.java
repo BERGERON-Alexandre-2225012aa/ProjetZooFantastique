@@ -2,6 +2,9 @@ package ga2.projetzoofantastique.models;
 
 import java.util.ArrayList;
 
+/**
+ * Classe Licorne, sous classe de Vivipare qui implémente l'interface Terrestre
+ */
 public class Licorne extends Vivipare implements Terrestre {
     /**
      * Constructeur de la classe Licorne

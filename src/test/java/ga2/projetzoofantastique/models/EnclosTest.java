@@ -20,7 +20,7 @@ class EnclosTest {
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Enclos1";
         double superficie = 200;
         int capacite = 20;
@@ -49,7 +49,7 @@ class EnclosTest {
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Enclos1";
         double superficie = 200;
         int capacite = 20;
@@ -92,7 +92,7 @@ class EnclosTest {
         enclos.setProprete(1);
         enclos.setMeute(null);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Enclos1";
         double superficie = 200;
         int capacite = 20;

@@ -21,7 +21,7 @@ class AquariumTest {
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Aquarium1";
         double superficie = 200;
         int capacite = 20;
@@ -50,12 +50,12 @@ class AquariumTest {
      */
     @Test
     public void testGetters() {
-        //On crée l'enclos.
+        //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Aquarium1";
         double superficie = 200;
         int capacite = 20;
@@ -85,7 +85,7 @@ class AquariumTest {
      */
     @Test
     public void testSetters(){
-        //On crée l'enclos.
+        //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
         Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
@@ -105,7 +105,7 @@ class AquariumTest {
         aquarium.setSalinite(1);
         aquarium.setPropreteFond(1);
 
-        // On crée les éléments auxquels les attributs de la créature doivent correspondre.
+        // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Aquarium1";
         double superficie = 200;
         int capacite = 20;
