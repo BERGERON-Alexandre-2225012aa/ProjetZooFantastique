@@ -2,7 +2,6 @@ package ga2.projetzoofantastique.models.creatures.vivipares;
 
 import ga2.projetzoofantastique.models.creatures.interfaces.Immortel;
 import ga2.projetzoofantastique.models.enclos.Enclos;
-
 import java.util.ArrayList;
 
 /**

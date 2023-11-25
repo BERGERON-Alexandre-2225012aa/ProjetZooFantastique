@@ -5,7 +5,6 @@ import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

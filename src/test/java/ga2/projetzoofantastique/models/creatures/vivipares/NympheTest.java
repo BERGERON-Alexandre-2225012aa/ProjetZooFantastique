@@ -4,9 +4,7 @@ import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 /**

@@ -2,12 +2,9 @@ package ga2.projetzoofantastique.models.creatures.ovipares;
 
 import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
-import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
 import ga2.projetzoofantastique.models.enclos.Voliere;
 import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class PhenixTest {
