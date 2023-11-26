@@ -19,7 +19,7 @@ class SireneTest {
         // On crée la sirène.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Aquarium aquarium = new Aquarium("Enclos1", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
         Sirene sirene = new Sirene("Sirene1", "male", 25, 5, aquarium);
 
         // On crée les éléments auxquels les attributs de la sirene doivent correspondre.
