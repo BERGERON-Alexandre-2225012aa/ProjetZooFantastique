@@ -56,4 +56,11 @@ public class Meute {
         return coupleAlpha;
     }
 
+    /**
+     * Setter de la liste de lycanthropes
+     * @param lycanthropes
+     */
+    public void setLycanthropes(ArrayList<Lycanthrope> lycanthropes) {
+        this.lycanthropes = lycanthropes;
+    }
 }
