@@ -22,7 +22,38 @@ public class Meute {
      */
     private Enclos enclos;
 
-    public Meute() {
-
+    /**
+     * Constructeur de la classe Meute
+     * @param enclos
+     */
+    public Meute(Enclos enclos) {
+        this.coupleAlpha = new CoupleAlpha();
+        this.lycanthropes = new ArrayList<>();
+        this.enclos = enclos;
     }
+
+    /**
+     * Getter de l'enclos correspondant à la meute
+     * @return
+     */
+    public Enclos getEnclos() {
+        return enclos;
+    }
+
+    /**
+     * Getter de la liste des lycanthropes de la meute
+     * @return
+     */
+    public ArrayList<Lycanthrope> getLycanthropes() {
+        return lycanthropes;
+    }
+
+    /**
+     * Getter du couple alpha de la meute
+     * @return
+     */
+    public CoupleAlpha getCoupleAlpha() {
+        return coupleAlpha;
+    }
+
 }

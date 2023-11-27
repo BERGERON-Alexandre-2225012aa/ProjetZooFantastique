@@ -2,6 +2,9 @@ package ga2.projetzoofantastique.models.colonies;
 
 import ga2.projetzoofantastique.models.creatures.vivipares.Lycanthrope;
 
+/**
+ * Classe Couple Alpha
+ */
 public class CoupleAlpha {
 
     /**
