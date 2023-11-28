@@ -114,4 +114,25 @@ class EnclosTest {
         assertEquals(null, enclos.getMeute());
     }
 
+    /**
+     * Test afficherCaracteristiques()
+     */
+    @Test
+    public void testAfficherCaracteristiques() {
+        // On crée l'enclos
+        Maitre maitre = new Maitre("Jean", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+
+        // On crée les valeurs à vérifier
+        String caracteristiquesEnclos = ("Enclos de Zinzin :" +
+                "\n Superficie : 200.0" +
+                "\n Capacité : 20" +
+                "\n Nombre de créatures : 0" +
+                "\n Propreté : 2");
+
+        // Test
+        assertEquals(caracteristiquesEnclos, enclos.afficherCaracteristiques());
+    }
+
 }

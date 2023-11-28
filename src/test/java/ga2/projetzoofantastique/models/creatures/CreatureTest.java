@@ -119,4 +119,8 @@ class CreatureTest {
         assertEquals(sante, creature.getSante());
         assertEquals(enclos2, creature.getEnclos());
     }
+
+    public String afficherCaracteristiques() {
+        return "pas fait";
+    }
 }

@@ -156,5 +156,15 @@ public class Enclos {
         this.meute = meute;
     }
 
-
+    /**
+     * Pour afficher les caractéristiques de l'enclos
+     * @return
+     */
+    public String afficherCaracteristiques() {
+        return (this.getNom() + " :" +
+                "\n Superficie : " + this.getSuperficie() +
+                "\n Capacité : " + this.getCapacite() +
+                "\n Nombre de créatures : " + this.getNombreDeCreatures() +
+                "\n Propreté : " + this.getProprete());
+    }
 }
