@@ -54,8 +54,13 @@ class HurlementTest {
         Meute meute = new Meute(enclos);
         Hurlement hurlement1 = new Hurlement("appartenance", meute);
         Hurlement hurlement2 = new Hurlement("domination", null);
+        String caracteristiquesHurlement1 = ("Hurlement :" +
+                "\n Type : appartenance" +
+                "\n Meute : Enclos1");
+        String caracteristiquesHurlement2 = ("Hurlement :" +
+                "\n Type : domination");
 
-        hurlement1.afficherCaracteristiques();
-        hurlement2.afficherCaracteristiques();
+        assertEquals(caracteristiquesHurlement1, hurlement1.afficherCaracteristiques());
+        assertEquals(caracteristiquesHurlement2, hurlement2.afficherCaracteristiques());
     }
 }

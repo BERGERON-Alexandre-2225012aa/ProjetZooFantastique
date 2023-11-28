@@ -41,13 +41,13 @@ public class Hurlement {
         return type;
     }
 
-    public void afficherCaracteristiques() {
+    public String afficherCaracteristiques() {
         if (this.meute == null) {
-            System.out.println("Hurlement :" +
+            return ("Hurlement :" +
                     "\n Type : " + this.getType());
         }
         else {
-            System.out.println("Hurlement :" +
+            return ("Hurlement :" +
                     "\n Type : " + this.getType() +
                     "\n Meute : " + this.getMeute().getEnclos().getNom());
         }
