@@ -18,15 +18,15 @@ public class Creature {
      */
     private String sexe;
     /**
-     * Poids de la Creature
+     * Poids de la Creature en kg
      */
     private double poids;
     /**
-     * Taille de la Creature
+     * Taille de la Creature en mètres
      */
     private double taille;
     /**
-     * Age de la Creature
+     * Age de la Creature en années
      */
     private int age;
     /**
@@ -235,5 +235,62 @@ public class Creature {
      */
     public void setEnclos(Enclos enclos) {
         this.enclos = enclos;
+    }
+
+    /**
+     * Donne l'état de faim en fonction de l'indicateur de faim
+     * @return
+     */
+    public String etatFaim() {
+        if (this.getFaim() == 0) {
+            return "rassasié";
+        } else if (this.getFaim() == 1) {
+            return "affamé";
+        } else {
+            return "très affamé";
+        }
+    }
+
+    /**
+     * Donne l'état de sommeil en fonction de l'indicateur de sommeil
+     * @return
+     */
+    public String etatSommeil() {
+        if (this.isSommeil()) {
+            return "endormi";
+        }
+        else {
+            return "réveillé";
+        }
+    }
+
+    /**
+     * Donne l'état de santé en fonction de l'indicateur de santé
+     * @return
+     */
+    public String etatSante() {
+        if (this.getSante() == 2) {
+            return "bonne santé";
+        } else if (this.getSante() == 1) {
+            return "malade";
+        }
+        else {
+            return "très malade";
+        }
+    }
+
+    /**
+     * Affiche les caractéristiques de la créature
+     * @return
+     */
+    public String afficherCaracteristiques() {
+        return (this.getNom() + " :" +
+                "\n Sexe : " + this.getSexe() +
+                "\n Âge : " + this.getAge() + " ans" +
+                "\n Poids : " + this.getPoids() + " kg" +
+                "\n Taille : " + this.getTaille() + " m" +
+                "\n Faim : " + this.etatFaim() +
+                "\n Sommeil : " + this.etatSommeil() +
+                "\n Santé : " + this.etatSante());
     }
 }

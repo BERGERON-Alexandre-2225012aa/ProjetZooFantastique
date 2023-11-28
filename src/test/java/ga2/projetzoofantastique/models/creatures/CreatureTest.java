@@ -120,7 +120,24 @@ class CreatureTest {
         assertEquals(enclos2, creature.getEnclos());
     }
 
-    public String afficherCaracteristiques() {
-        return "pas fait";
+    @Test
+    public void testAfficherCaracteristiques() {
+        //On crée la créature
+        Maitre maitre = new Maitre("Mamadou", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Creature creature = new Creature("Creature", "male",10, 10, enclos);
+
+        //On crée la valeur à vérifier
+        String caracteristiquesCreature = ("Creature" + " :" +
+                "\n Sexe : " + "male" +
+                "\n Âge : " + "0" + " ans" +
+                "\n Poids : " + "10.0" + " kg" +
+                "\n Taille : " + "10.0" + " m" +
+                "\n Faim : " + "rassasié" +
+                "\n Sommeil : " + "réveillé" +
+                "\n Santé : " + "bonne santé");
+        //Test
+        assertEquals(caracteristiquesCreature, creature.afficherCaracteristiques());
     }
 }
