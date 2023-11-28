@@ -157,6 +157,26 @@ public class Enclos {
     }
 
     /**
+     * Ajouter une créature dans l'enclos
+     * @param creature
+     */
+    public void ajouterCreature(Creature creature) {
+        creature.setEnclos(this);
+        this.creatures.add(creature);
+        this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+    }
+
+    /**
+     * Retirer une créature de l'enclos
+     * @param creature
+     */
+    public void retirerCreature(Creature creature) {
+        creature.setEnclos(null);
+        this.creatures.remove(creature);
+        this.setNombreDeCreatures(this.getNombreDeCreatures()-1);
+    }
+
+    /**
      * Pour afficher les caractéristiques de l'enclos
      * @return
      */
@@ -166,5 +186,17 @@ public class Enclos {
                 "\n Capacité : " + this.getCapacite() +
                 "\n Nombre de créatures : " + this.getNombreDeCreatures() +
                 "\n Propreté : " + this.getProprete());
+    }
+
+    /**
+     * Pour afficher les caractéristiques de toutes les créatures d'un enclos
+     * @return
+     */
+    public ArrayList<String> afficherCaracteristiquesCreatures() {
+        ArrayList<String> list = new ArrayList<>();
+        for (int i = 0 ; i < this.getNombreDeCreatures() ; ++i) {
+            list.add(this.getCreatures().get(i).afficherCaracteristiques());
+        }
+        return list;
     }
 }

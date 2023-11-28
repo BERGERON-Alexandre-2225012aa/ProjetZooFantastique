@@ -115,6 +115,57 @@ class EnclosTest {
     }
 
     /**
+     * Test de l'ajout d'une créature dans un enclos
+     */
+    @Test
+    public void testAjouterCreature() {
+        // On crée l'enclos
+        Maitre maitre = new Maitre("Jean", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+
+        //On crée la créature à ajouter
+        Creature creature = new Creature("Creature", "male", 20, 20, null);
+
+        //On ajoute
+        enclos.ajouterCreature(creature);
+
+        //Valeurs à vérifier
+        ArrayList<Creature> creatures = new ArrayList<>();
+        creatures.add(creature);
+
+        //On teste
+        assertEquals(enclos, creature.getEnclos());
+        assertEquals(creatures, enclos.getCreatures());
+        assertEquals(1, enclos.getNombreDeCreatures());
+    }
+
+    @Test
+    public void testRetirerCreature() {
+        // On crée l'enclos
+        Maitre maitre = new Maitre("Jean", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+
+        //On crée la créature à ajouter
+        Creature creature = new Creature("Creature", "male", 20, 20, null);
+
+        //On ajoute
+        enclos.ajouterCreature(creature);
+
+        //On retire
+        enclos.retirerCreature(creature);
+
+        //Valeurs à vérifier
+        ArrayList<Creature> creatures = new ArrayList<>();
+
+        //On teste
+        assertNull(creature.getEnclos());
+        assertEquals(creatures, enclos.getCreatures());
+        assertEquals(0, enclos.getNombreDeCreatures());
+    }
+
+    /**
      * Test afficherCaracteristiques()
      */
     @Test
@@ -133,6 +184,37 @@ class EnclosTest {
 
         // Test
         assertEquals(caracteristiquesEnclos, enclos.afficherCaracteristiques());
+    }
+
+    /**
+     * Test pour afficher toutes les caractéristiques des créatures d'un enclos
+     */
+    @Test
+    public void testAfficherCaracteristiquesCreatures() {
+        //On crée la créature
+        Maitre maitre = new Maitre("Mamadou", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Creature creature = new Creature("Creature", "male",10, 10, null);
+
+        //On l'ajoute dans l'enclos
+        enclos.ajouterCreature(creature);
+
+        //On crée la valeur à vérifier
+        String caracteristiquesCreature = ("Creature" + " :" +
+                "\n Sexe : " + "male" +
+                "\n Âge : " + "0" + " ans" +
+                "\n Poids : " + "10.0" + " kg" +
+                "\n Taille : " + "10.0" + " m" +
+                "\n Faim : " + "rassasié" +
+                "\n Sommeil : " + "réveillé" +
+                "\n Santé : " + "bonne santé");
+
+        ArrayList<String> listeCaracteristiquesCreatures = new ArrayList<>();
+        listeCaracteristiquesCreatures.add(caracteristiquesCreature);
+
+        //Test
+        assertEquals(listeCaracteristiquesCreatures, enclos.afficherCaracteristiquesCreatures());
     }
 
 }
