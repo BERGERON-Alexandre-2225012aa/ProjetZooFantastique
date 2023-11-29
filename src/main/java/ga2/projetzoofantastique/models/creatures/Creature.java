@@ -293,4 +293,11 @@ public class Creature {
                 "\n Sommeil : " + this.etatSommeil() +
                 "\n Santé : " + this.etatSante());
     }
+
+    /**
+     * La créature mange, mets son indicateur de faim à 0
+     */
+    public void manger() {
+        this.setFaim(0);
+    }
 }

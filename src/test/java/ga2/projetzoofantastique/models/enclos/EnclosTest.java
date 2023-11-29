@@ -40,7 +40,7 @@ class EnclosTest {
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(proprete, enclos.getProprete());
         assertEquals(zooFantastique, enclos.getZooFantastique());
-        assertEquals(null, enclos.getMeute());
+        assertNull(enclos.getMeute());
     }
 
     /**
@@ -69,7 +69,7 @@ class EnclosTest {
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(proprete, enclos.getProprete());
         assertEquals(zooFantastique, enclos.getZooFantastique());
-        assertEquals(null, enclos.getMeute());
+        assertNull(enclos.getMeute());
     }
 
     /**
@@ -180,7 +180,7 @@ class EnclosTest {
                 "\n Superficie : 200.0" +
                 "\n Capacité : 20" +
                 "\n Nombre de créatures : 0" +
-                "\n Propreté : 2");
+                "\n Propreté : propre");
 
         // Test
         assertEquals(caracteristiquesEnclos, enclos.afficherCaracteristiques());
@@ -215,6 +215,54 @@ class EnclosTest {
 
         //Test
         assertEquals(listeCaracteristiquesCreatures, enclos.afficherCaracteristiquesCreatures());
+    }
+
+    @Test
+    public void testNourrirCreatures() {
+        //On crée l'enclos
+        Maitre maitre = new Maitre("Mamadou", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+
+        //On crée les créatures
+        Creature creature1 = new Creature("Creature1", "male",10, 10, null);
+        Creature creature2 = new Creature("Creature2", "male",10, 10, null);
+        Creature creature3 = new Creature("Creature3", "male",10, 10, null);
+
+        //On les ajoute
+        enclos.ajouterCreature(creature1);
+        enclos.ajouterCreature(creature2);
+        enclos.ajouterCreature(creature3);
+
+        //On modifie la valeur de faim
+        creature1.setFaim(2);
+        creature2.setFaim(2);
+        creature3.setFaim(2);
+
+        //On remet à 0
+        enclos.nourrirCreatures();
+
+        //Test
+        for (int i = 0 ; i < enclos.getNombreDeCreatures() ; ++i) {
+            assertEquals(0, enclos.getCreatures().get(i).getFaim());
+        }
+    }
+
+    @Test
+    public void testNettoyer() {
+        //On crée l'enclos
+        Maitre maitre = new Maitre("Mamadou", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
+        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+
+        //On modifie la valeur de propreté
+        enclos.setProprete(0);
+
+        //On nettoie
+        enclos.nettoyer();
+
+        //On teste
+        assertEquals(2, enclos.getProprete());
     }
 
 }

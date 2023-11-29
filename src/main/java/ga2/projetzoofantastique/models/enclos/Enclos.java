@@ -157,6 +157,21 @@ public class Enclos {
     }
 
     /**
+     * Donne l'état de propreté en fonction de l'indicateur de propreté
+     * @return
+     */
+    public String etatProprete() {
+        if (this.getProprete() == 2) {
+            return "propre";
+        } else if (this.getProprete() == 1) {
+            return "sale";
+        }
+        else {
+            return "très sale";
+        }
+    }
+
+    /**
      * Ajouter une créature dans l'enclos
      * @param creature
      */
@@ -185,7 +200,7 @@ public class Enclos {
                 "\n Superficie : " + this.getSuperficie() +
                 "\n Capacité : " + this.getCapacite() +
                 "\n Nombre de créatures : " + this.getNombreDeCreatures() +
-                "\n Propreté : " + this.getProprete());
+                "\n Propreté : " + this.etatProprete());
     }
 
     /**
@@ -198,5 +213,21 @@ public class Enclos {
             list.add(this.getCreatures().get(i).afficherCaracteristiques());
         }
         return list;
+    }
+
+    /**
+     * Nourrir les créatures de l'enclos, mets leurs indicateurs de faim à 0
+     */
+    public void nourrirCreatures() {
+        for (int i = 0 ; i < nombreDeCreatures ; ++i) {
+            creatures.get(i).manger();
+        }
+    }
+
+    /**
+     * Nettoyer l'enclos, mets son indice de propreté à 2 (valeur de propreté max)
+     */
+    public void nettoyer() {
+        this.setProprete(2);
     }
 }
