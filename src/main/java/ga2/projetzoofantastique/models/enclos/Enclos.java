@@ -3,6 +3,9 @@ package ga2.projetzoofantastique.models.enclos;
 import ga2.projetzoofantastique.models.colonies.Meute;
 import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aerien;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aquatique;
+import ga2.projetzoofantastique.models.creatures.ovipares.Dragon;
 
 import java.util.ArrayList;
 
@@ -176,9 +179,22 @@ public class Enclos {
      * @param creature
      */
     public void ajouterCreature(Creature creature) {
-        creature.setEnclos(this);
-        this.creatures.add(creature);
-        this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+        if (creature instanceof Dragon) {
+            creature.setEnclos(this);
+            this.creatures.add(creature);
+            this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+        }
+        else if (creature instanceof Aerien) {
+            System.out.println("Un enclos ne peut pas recevoir de créatures aériennes !");
+        }
+        else if (creature instanceof Aquatique) {
+            System.out.println("Un enclos ne peut pas recevoir de créatures aquatiques !");
+        }
+        else {
+            creature.setEnclos(this);
+            this.creatures.add(creature);
+            this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+        }
     }
 
     /**

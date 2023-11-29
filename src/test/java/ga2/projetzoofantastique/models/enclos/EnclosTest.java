@@ -3,6 +3,9 @@ package ga2.projetzoofantastique.models.enclos;
 import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.creatures.ovipares.Dragon;
+import ga2.projetzoofantastique.models.creatures.ovipares.Kraken;
+import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import org.junit.jupiter.api.Test;
 
@@ -126,18 +129,25 @@ class EnclosTest {
 
         //On crée la créature à ajouter
         Creature creature = new Creature("Creature", "male", 20, 20, null);
+        Kraken kraken = new Kraken("Kraken", "male", 20, 20, null);
+        Phenix phenix = new Phenix("Phenix", "male", 20, 20, null);
+        Dragon dragon = new Dragon("Dragon", "male", 20, 20, null);
 
         //On ajoute
         enclos.ajouterCreature(creature);
+        enclos.ajouterCreature(kraken);
+        enclos.ajouterCreature(phenix);
+        enclos.ajouterCreature(dragon);
 
         //Valeurs à vérifier
         ArrayList<Creature> creatures = new ArrayList<>();
         creatures.add(creature);
+        creatures.add(dragon);
 
         //On teste
         assertEquals(enclos, creature.getEnclos());
         assertEquals(creatures, enclos.getCreatures());
-        assertEquals(1, enclos.getNombreDeCreatures());
+        assertEquals(2, enclos.getNombreDeCreatures());
     }
 
     @Test
