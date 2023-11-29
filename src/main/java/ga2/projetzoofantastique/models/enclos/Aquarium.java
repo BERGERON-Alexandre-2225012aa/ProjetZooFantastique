@@ -1,6 +1,8 @@
 package ga2.projetzoofantastique.models.enclos;
 
 import ga2.projetzoofantastique.models.ZooFantastique;
+import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aquatique;
 
 /**
  * Classe Aquarium pour contenir des créatures aquatiques
@@ -77,5 +79,76 @@ public class Aquarium extends Enclos {
      */
     public void setPropreteFond(int propreteFond) {
         this.propreteFond = propreteFond;
+    }
+
+    /**
+     * Etat de salinité en fonction de l'indicateur de salinité
+     * @return
+     */
+    public String etatSalinite() {
+        if (this.getSalinite() == 2) {
+            return "correcte";
+        } else if (this.getSalinite() == 1) {
+            return "manque de sel";
+        } else {
+            return "insuffisante";
+        }
+    }
+
+    /**
+     * Etat de propreté du fond de l'aquarium en fonction de l'indicateur de propreté du fond
+     * @return
+     */
+    public String etatPropreteFond() {
+        if (this.getPropreteFond() == 2) {
+            return "propre";
+        } else if (this.getPropreteFond() == 1) {
+            return "sale";
+        } else {
+            return "très sale";
+        }
+    }
+
+    /**
+     * Ajouter une créature dans l'aquarium, seulement si elle est aquatique
+     * @param creature
+     */
+    @Override
+    public void ajouterCreature(Creature creature) {
+        if (!(creature instanceof Aquatique)) {
+            System.out.println("La créature doit être aquatique !");
+        }
+        else {
+            creature.setEnclos(this);
+            this.creatures.add(creature);
+            this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+        }
+    }
+
+    /**
+     * Afficher les caractéristiques de l'enclos
+     * @return
+     */
+    @Override
+    public String afficherCaracteristiques() {
+        return super.afficherCaracteristiques() +
+                "\n Propreté du fond : " + this.etatPropreteFond() +
+                "\n Salinité : " + this.etatSalinite();
+    }
+
+    /**
+     * Nettoyer l'aquarium, mets les indicateurs de propreté à 2 (fond et normal)
+     */
+    @Override
+    public void nettoyer() {
+        super.nettoyer();
+        this.setPropreteFond(2);
+    }
+
+    /**
+     * Salinise correctement l'aquarium, mets l'indicateur de salinité à 2
+     */
+    public void saliniser() {
+        this.setSalinite(2);
     }
 }

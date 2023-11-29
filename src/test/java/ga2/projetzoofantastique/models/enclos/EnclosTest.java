@@ -146,6 +146,7 @@ class EnclosTest {
 
         //On teste
         assertEquals(enclos, creature.getEnclos());
+        assertEquals(enclos, dragon.getEnclos());
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(2, enclos.getNombreDeCreatures());
     }
@@ -227,6 +228,9 @@ class EnclosTest {
         assertEquals(listeCaracteristiquesCreatures, enclos.afficherCaracteristiquesCreatures());
     }
 
+    /**
+     * Test de la méthode nourrir
+     */
     @Test
     public void testNourrirCreatures() {
         //On crée l'enclos
@@ -258,6 +262,9 @@ class EnclosTest {
         }
     }
 
+    /**
+     * Test de la méthode nettoyer
+     */
     @Test
     public void testNettoyer() {
         //On crée l'enclos

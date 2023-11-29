@@ -33,7 +33,7 @@ public class Enclos {
     /**
      * Liste de toutes les créatures contenues dans l'enclos
      */
-    private ArrayList<Creature> creatures;
+    protected ArrayList<Creature> creatures;
     /**
      * Indicateur de propreté de l'enclos
      */
@@ -175,7 +175,7 @@ public class Enclos {
     }
 
     /**
-     * Ajouter une créature dans l'enclos
+     * Ajouter une créature dans l'enclos, sauf si elle est aquatique ou aérienne (hors dragons)
      * @param creature
      */
     public void ajouterCreature(Creature creature) {
