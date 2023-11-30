@@ -132,6 +132,7 @@ public class Aquarium extends Enclos {
     @Override
     public String afficherCaracteristiques() {
         return super.afficherCaracteristiques() +
+                "\n Profondeur : " + this.getProfondeur() + "m" +
                 "\n Propreté du fond : " + this.etatPropreteFond() +
                 "\n Salinité : " + this.etatSalinite();
     }

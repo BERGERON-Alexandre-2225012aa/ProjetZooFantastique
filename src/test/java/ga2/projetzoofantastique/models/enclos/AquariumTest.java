@@ -185,6 +185,7 @@ class AquariumTest {
                 "\n Capacité : 20" +
                 "\n Nombre de créatures : 0" +
                 "\n Propreté : propre" +
+                "\n Profondeur : 10.0m" +
                 "\n Propreté du fond : propre" +
                 "\n Salinité : correcte");
 

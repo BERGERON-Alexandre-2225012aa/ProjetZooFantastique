@@ -1,6 +1,11 @@
 package ga2.projetzoofantastique.models.enclos;
 
 import ga2.projetzoofantastique.models.ZooFantastique;
+import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aerien;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aquatique;
+
+import java.util.ArrayList;
 
 public class Voliere extends Enclos {
     //Attributs
@@ -52,5 +57,38 @@ public class Voliere extends Enclos {
      */
     public void setPropreteToit(int propreteToit) {
         this.propreteToit = propreteToit;
+    }
+
+    /**
+     * Retourne l'état de propreté du toit de l'enclos en fonction de l'indicateur de propreté du toit de la volière
+     * @return
+     */
+    public String etatPropreteToit() {
+        if (this.getPropreteToit()==2) {
+            return "propre";
+        } else if (this.getPropreteToit()==1) {
+            return "sale";
+        } else {
+            return "très sale";
+        }
+    }
+
+    @Override
+    public void ajouterCreature(Creature creature) {
+        if (!(creature instanceof Aerien)) {
+            System.out.println("La créature doit être aérienne !");
+        }
+        else {
+            creature.setEnclos(this);
+            this.creatures.add(creature);
+            this.setNombreDeCreatures(this.getNombreDeCreatures()+1);
+        }
+    }
+
+    @Override
+    public String afficherCaracteristiques() {
+        return super.afficherCaracteristiques() +
+                "\n Hauteur : " + this.getHauteur() + "m" +
+                "\n Propreté du toit : " + this.etatPropreteToit();
     }
 }
