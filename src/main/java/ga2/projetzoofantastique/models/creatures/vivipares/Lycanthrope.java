@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class Lycanthrope extends Vivipare implements Terrestre {
     /**
+     * Nombre total de lycanthropes
+     */
+    public static int nombreTotal;
+    /**
      * Force du Lycanthrope
      */
     private int force;
@@ -59,6 +63,15 @@ public class Lycanthrope extends Vivipare implements Terrestre {
         this.impetuosite = 0;
         this.meute = null;
         this.apparenceHumaine = null;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de lycanthropes
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     /**

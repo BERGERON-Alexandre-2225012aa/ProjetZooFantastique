@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class Kraken extends Ovipare implements Aquatique {
     /**
+     * Nombre total de krakens
+     */
+    public static int nombreTotal;
+    /**
      * Constructeur de la classe Kraken
      * @param nom
      * @param sexe
@@ -26,6 +30,15 @@ public class Kraken extends Ovipare implements Aquatique {
         this.moisSaisonAmour.add(2);
         this.moisSaisonAmour.add(3);
         this.longevite = 50;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de krakens
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     public void pondre() {

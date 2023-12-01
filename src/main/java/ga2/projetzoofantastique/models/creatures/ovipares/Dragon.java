@@ -12,6 +12,10 @@ import java.util.ArrayList;
  */
 public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Immortel {
     /**
+     * Nombre total de dragons
+     */
+    public static int nombreTotal;
+    /**
      * Constructeur de la classe Dragon
      * @param nom
      * @param sexe
@@ -29,6 +33,15 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
         this.moisSaisonAmour.add(11);
         this.moisSaisonAmour.add(12);
         this.longevite = 100;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de dragons
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     public void pondre() {

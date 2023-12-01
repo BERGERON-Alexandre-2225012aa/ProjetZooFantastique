@@ -10,6 +10,10 @@ import java.util.ArrayList;
  */
 public class Phenix extends Ovipare implements Aerien, Immortel {
     /**
+     * Nombre total de phénix
+     */
+    public static int nombreTotal;
+    /**
      * Constructeur de la classe Phenix
      * @param nom
      * @param sexe
@@ -27,6 +31,15 @@ public class Phenix extends Ovipare implements Aerien, Immortel {
         this.moisSaisonAmour.add(5);
         this.moisSaisonAmour.add(6);
         this.longevite = 20;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de phénix
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     /**

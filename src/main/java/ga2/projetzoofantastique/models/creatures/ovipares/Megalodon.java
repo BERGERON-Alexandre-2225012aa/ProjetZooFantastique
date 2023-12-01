@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class Megalodon extends Ovipare implements Aquatique {
     /**
+     * Nombre total de mégalodons
+     */
+    public static int nombreTotal;
+    /**
      * Constructeur de la classe Megalodon
      * @param nom
      * @param sexe
@@ -26,6 +30,15 @@ public class Megalodon extends Ovipare implements Aquatique {
         this.moisSaisonAmour.add(5);
         this.moisSaisonAmour.add(6);
         this.longevite = 50;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de mégalodons
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     public void pondre() {

@@ -2,12 +2,18 @@ package ga2.projetzoofantastique.models.creatures.vivipares;
 
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.creatures.interfaces.Terrestre;
+import ga2.projetzoofantastique.models.threads.Naissance;
+
 import java.util.ArrayList;
 
 /**
  * Classe Licorne, sous classe de Vivipare qui implémente l'interface Terrestre
  */
 public class Licorne extends Vivipare implements Terrestre {
+    /**
+     * Nombre total de licornes
+     */
+    public static int nombreTotal;
     /**
      * Constructeur de la classe Licorne
      * @param nom
@@ -26,6 +32,15 @@ public class Licorne extends Vivipare implements Terrestre {
         moisSaisonAmour.add(5);
         moisSaisonAmour.add(6);
         this.longevite = 60;
+        nombreTotal += 1;
+    }
+
+    /**
+     * Getter du nombre total de licornes
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     /**
@@ -33,7 +48,9 @@ public class Licorne extends Vivipare implements Terrestre {
      */
     @Override
     public void mettreBas() {
-        //plus tard
+        Naissance naissance = new Naissance(this.getTempsAvantNaissance(), this);
+        Thread thread = new Thread(naissance);
+        thread.start();
     }
 
     /**

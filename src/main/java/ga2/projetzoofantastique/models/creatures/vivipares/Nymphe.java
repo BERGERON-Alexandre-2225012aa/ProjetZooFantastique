@@ -9,6 +9,10 @@ import java.util.ArrayList;
  */
 public class Nymphe extends Vivipare implements Immortel {
     /**
+     * Nombre total de nymphes
+     */
+    public static int nombreTotal;
+    /**
      * Constructeur de la classe Nymphe
      * @param nom
      * @param sexe
@@ -26,6 +30,16 @@ public class Nymphe extends Vivipare implements Immortel {
         moisSaisonAmour.add(8);
         moisSaisonAmour.add(9);
         this.longevite = 100;
+        nombreTotal += 1;
+    }
+
+
+    /**
+     * Getter du nombre total de nymphes
+     * @return
+     */
+    public static int getNombreTotal() {
+        return nombreTotal;
     }
 
     /**
