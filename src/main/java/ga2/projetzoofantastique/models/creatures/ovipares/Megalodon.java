@@ -25,6 +25,7 @@ public class Megalodon extends Ovipare implements Aquatique {
         this.moisSaisonAmour.add(4);
         this.moisSaisonAmour.add(5);
         this.moisSaisonAmour.add(6);
+        this.longevite = 50;
     }
 
     public void pondre() {
@@ -36,5 +37,12 @@ public class Megalodon extends Ovipare implements Aquatique {
      */
     public void nager() {
         System.out.println(this.getNom() + " nage");
+    }
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.mourrir();
+        }
     }
 }

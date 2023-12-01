@@ -25,6 +25,7 @@ public class Sirene extends Vivipare implements Aquatique {
         moisSaisonAmour.add(7);
         moisSaisonAmour.add(8);
         moisSaisonAmour.add(9);
+        this.longevite = 100;
     }
 
     /**
@@ -35,6 +36,13 @@ public class Sirene extends Vivipare implements Aquatique {
         //plus tard
     }
 
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.mourrir();
+        }
+    }
     /**
      * Methode pour nager
      */

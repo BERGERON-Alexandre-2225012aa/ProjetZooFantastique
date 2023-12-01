@@ -139,6 +139,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
      */
     public void setMeute(Meute meute) {
         this.meute = meute;
+        this.longevite = 25;
     }
 
     /**
@@ -163,5 +164,12 @@ public class Lycanthrope extends Vivipare implements Terrestre {
     @Override
     public void courir() {
         System.out.println(this.getNom() + " court");
+    }
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.mourrir();
+        }
     }
 }

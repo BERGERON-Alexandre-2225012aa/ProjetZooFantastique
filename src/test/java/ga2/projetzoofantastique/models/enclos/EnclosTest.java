@@ -194,7 +194,10 @@ class EnclosTest {
                 "\n Propreté : propre" +
                 "\n " +
                 "\n Nombre de créatures affamés : 0"+
-                "\n Nombre de créatures très affamées : 0");
+                "\n Nombre de créatures très affamées : 0" +
+                "\n " +
+                "\n Nombre de créatures malades : 0" +
+                "\n Nombre de créatures très malades : 0");
 
         // Test
         assertEquals(caracteristiquesEnclos, enclos.afficherCaracteristiques());

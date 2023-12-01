@@ -180,4 +180,16 @@ class MaitreTest {
         assertEquals(creaturesEnclos1, enclos1.getCreatures());
         assertEquals(creaturesEnclos2, enclos2.getCreatures());
     }
+
+    /**
+     * Test si le maitre vieillit correctement
+     */
+    @Test
+    public void testVieillir() {
+        Maitre maitre = new Maitre("Karim", "male");
+
+        maitre.vieillir();
+
+        assertEquals(1, maitre.getAge());
+    }
 }

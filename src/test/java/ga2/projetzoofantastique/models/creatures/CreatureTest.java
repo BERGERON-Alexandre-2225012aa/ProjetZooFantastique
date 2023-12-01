@@ -140,4 +140,86 @@ class CreatureTest {
         //Test
         assertEquals(caracteristiquesCreature, creature.afficherCaracteristiques());
     }
+
+    /**
+     * Test manger
+     */
+    @Test
+    public void testManger() {
+        Enclos enclos = new Enclos("Enclos", 200, 20);
+        Creature creature = new Creature("Creature", "male",10, 10, enclos);
+
+        creature.setFaim(2);
+
+        creature.manger();
+
+        assertEquals(0, creature.getFaim());
+    }
+
+    /**
+     * Test pour soigner une créature
+     */
+    @Test
+    public void testSoigner() {
+        Enclos enclos = new Enclos("Enclos", 200, 20);
+        Creature creature = new Creature("Creature", "male",10, 10, enclos);
+
+        creature.setSante(1);
+
+        creature.soigner();
+
+        assertEquals(2, creature.getSante());
+    }
+
+    /**
+     * Test si la créature se réveille comme il faut
+     */
+    @Test
+    public void testSeReveiller() {
+        Enclos enclos = new Enclos("Enclos", 200, 20);
+        Creature creature = new Creature("Creature", "male",10, 10, enclos);
+
+        creature.setSommeil(true);
+
+        creature.seReveiller();
+
+        assertEquals(false, creature.isSommeil());
+    }
+
+    /**
+     * Test si la créature s'endort bien
+     */
+    @Test
+    public void testDormir() {
+        Enclos enclos = new Enclos("Enclos", 200, 20);
+        Creature creature = new Creature("Creature", "male",10, 10, enclos);
+
+        creature.dormir();
+
+        assertEquals(true, creature.isSommeil());
+    }
+
+    /**
+     * Test si la créature vieillit correctement
+     */
+    @Test
+    public void testVieillir() {
+        Creature creature = new Creature("Jul meilleur rappeur", "male", 75, 1.80, null);
+
+        creature.vieillir();
+
+        assertEquals(1, creature.getAge());
+    }
+
+    /**
+     * Test si la créature vieillit correctement
+     */
+    @Test
+    public void testMourrir() {
+        Creature creature = new Creature("Jul meilleur rappeur", "male", 75, 1.80, null);
+
+        creature.vieillir();
+
+        assertEquals(1, creature.getAge());
+    }
 }

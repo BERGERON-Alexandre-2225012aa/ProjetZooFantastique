@@ -25,6 +25,7 @@ public class Kraken extends Ovipare implements Aquatique {
         this.moisSaisonAmour.add(1);
         this.moisSaisonAmour.add(2);
         this.moisSaisonAmour.add(3);
+        this.longevite = 50;
     }
 
     public void pondre() {
@@ -36,5 +37,12 @@ public class Kraken extends Ovipare implements Aquatique {
      */
     public void nager() {
         System.out.println(this.getNom() + " nage");
+    }
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.mourrir();
+        }
     }
 }

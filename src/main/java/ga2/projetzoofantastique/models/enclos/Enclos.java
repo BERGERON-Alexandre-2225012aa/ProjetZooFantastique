@@ -234,6 +234,26 @@ public class Enclos {
         return compteur;
     }
 
+    public int compterCreaturesMalades() {
+        int compteur = 0;
+        for (int i = 0 ; i < this.getNombreDeCreatures() ; ++i) {
+            if (this.getCreatures().get(i).getSante() == 1) {
+                ++compteur;
+            }
+        }
+        return compteur;
+    }
+
+    public int compterCreaturesTresMalades() {
+        int compteur = 0;
+        for (int i = 0 ; i < this.getNombreDeCreatures() ; ++i) {
+            if (this.getCreatures().get(i).getSante() == 0) {
+                ++compteur;
+            }
+        }
+        return compteur;
+    }
+
     /**
      * Pour afficher les caractéristiques de l'enclos
      * @return
@@ -247,7 +267,10 @@ public class Enclos {
                 "\n Propreté : " + this.etatProprete() +
                 "\n " +
                 "\n Nombre de créatures affamés : " + this.compterCreaturesAffamees() +
-                "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees());
+                "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees() +
+                "\n " +
+                "\n Nombre de créatures malades : " + compterCreaturesMalades() +
+                "\n Nombre de créatures très malades : " + compterCreaturesTresMalades());
     }
 
     /**
@@ -276,5 +299,14 @@ public class Enclos {
      */
     public void nettoyer() {
         this.setProprete(2);
+    }
+
+    /**
+     * Soigner les créatures de l'enclos
+     */
+    public void soigner() {
+        for (int i = 0 ; i < nombreDeCreatures ; ++i) {
+            creatures.get(i).soigner();
+        }
     }
 }

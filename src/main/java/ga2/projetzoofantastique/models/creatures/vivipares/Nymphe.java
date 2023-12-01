@@ -25,6 +25,7 @@ public class Nymphe extends Vivipare implements Immortel {
         moisSaisonAmour.add(7);
         moisSaisonAmour.add(8);
         moisSaisonAmour.add(9);
+        this.longevite = 100;
     }
 
     /**
@@ -35,11 +36,20 @@ public class Nymphe extends Vivipare implements Immortel {
         //plus tard
     }
 
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.renaitre();
+        }
+    }
+
     /**
-     * Methode pour renaitre
+     * Methode pour renaître
      */
     @Override
     public void renaitre() {
-        System.out.println(this.getNom() + " renait");
+        System.out.println(this.getNom() + " renaît");
+        this.setAge(0);
     }
 }

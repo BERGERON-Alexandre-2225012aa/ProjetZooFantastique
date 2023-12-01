@@ -25,6 +25,7 @@ public class Licorne extends Vivipare implements Terrestre {
         moisSaisonAmour.add(4);
         moisSaisonAmour.add(5);
         moisSaisonAmour.add(6);
+        this.longevite = 60;
     }
 
     /**
@@ -41,5 +42,12 @@ public class Licorne extends Vivipare implements Terrestre {
     @Override
     public void courir() {
         System.out.println(this.getNom() + " court");
+    }
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.mourrir();
+        }
     }
 }

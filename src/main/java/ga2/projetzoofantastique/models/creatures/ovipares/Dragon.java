@@ -28,6 +28,7 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
         this.moisSaisonAmour.add(10);
         this.moisSaisonAmour.add(11);
         this.moisSaisonAmour.add(12);
+        this.longevite = 100;
     }
 
     public void pondre() {
@@ -41,12 +42,12 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
         System.out.println(this.getNom() + " nage");
     }
     /**
-     * Methode pour renaitre
+     * Methode pour renaître
      */
     @Override
     public void renaitre() {
-
-        System.out.println(this.getNom() + " renait");
+        System.out.println(this.getNom() + " renaît");
+        this.setAge(0);
     }
     /**
      * Méthode pour voler
@@ -62,5 +63,13 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
     public void courir() {
 
         System.out.println(this.getNom() + " court");
+    }
+
+    @Override
+    public void vieillir() {
+        super.vieillir();
+        if (this.getAge()==this.getLongevite()) {
+            this.renaitre();
+        }
     }
 }

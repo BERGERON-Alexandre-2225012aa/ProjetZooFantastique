@@ -102,4 +102,11 @@ public class Maitre {
             System.out.println("L'enclos est plein ! Impossible de transférer la créature...");
         }
     }
+
+    /**
+     * Fais vieillir le maitre d'un an
+     */
+    public void vieillir() {
+        this.setAge(this.getAge()+1);
+    }
 }

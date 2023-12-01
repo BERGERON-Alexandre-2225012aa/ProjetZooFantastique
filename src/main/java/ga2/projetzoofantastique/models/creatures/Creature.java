@@ -1,5 +1,6 @@
 package ga2.projetzoofantastique.models.creatures;
 
+import ga2.projetzoofantastique.models.creatures.interfaces.Immortel;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 
 import java.util.ArrayList;
@@ -62,6 +63,10 @@ public class Creature {
      * Liste des mois correspondant à la saison des amours de la créature
      */
     protected ArrayList<Integer> moisSaisonAmour;
+    /**
+     * Longévité de la créature en années
+     */
+    protected int longevite;
 
     /**
      * Constructeur de la classe Creature
@@ -180,6 +185,11 @@ public class Creature {
     public ArrayList<Integer> getMoisSaisonAmour() {
         return moisSaisonAmour;
     }
+
+    public int getLongevite() {
+        return longevite;
+    }
+
     // Setters
 
     /**
@@ -299,5 +309,45 @@ public class Creature {
      */
     public void manger() {
         this.setFaim(0);
+    }
+
+    /**
+     * Soigner la créature, mets son indicateur de santé au maximum (2)
+     */
+    public void soigner() {
+        this.setSante(2);
+    }
+
+    /**
+     * Faire dormir la créature, mets son indicateur de sommeil à true
+     */
+    public void dormir() {
+        if (!(this.isSommeil())) {
+            this.setSommeil(true);
+        }
+    }
+
+    /**
+     * Réveiller la créature, mets son indicateur de sommeil à false
+     */
+    public void seReveiller() {
+        if (this.isSommeil()) {
+            this.setSommeil(false);
+        }
+    }
+
+    /**
+     * Fais vieillir la créature d'un an
+     */
+    public void vieillir() {
+        this.setAge(this.getAge()+1);
+    }
+
+    /**
+     * Faire disparaitre une créature
+     */
+    public void mourrir() {
+        this.getEnclos().retirerCreature(this);
+        this.setEnclos(null);
     }
 }
