@@ -1,5 +1,6 @@
 package ga2.projetzoofantastique.models;
 
+import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 
 /**
@@ -62,9 +63,43 @@ public class Maitre {
         this.age = age;
     }
 
+    /**
+     * Afficher les caractéristiques d'un enclos choisi
+     * @param enclos
+     * @return
+     */
     public String examinerEnclos(Enclos enclos) {
-        return enclos.afficherCaracteristiques() +
-                "\n " +
-                "\n ";
+        return enclos.afficherCaracteristiques();
+    }
+
+    /**
+     * Nettoyer un enclos choisi
+     * @param enclos
+     */
+    public void nettoyerEnclos(Enclos enclos) {
+        enclos.nettoyer();
+    }
+
+    /**
+     * Nourrir les créatures d'un enclos choisi
+     * @param enclos
+     */
+    public void nourrirEnclos(Enclos enclos) {
+        enclos.nourrirCreatures();
+    }
+
+    /**
+     * Transférer une créature vers un autre enclos
+     * @param creature
+     * @param enclos
+     */
+    public void transfererCreature(Creature creature, Enclos enclos) {
+        if (enclos.getNombreDeCreatures() < enclos.getCapacite()) {
+            creature.getEnclos().retirerCreature(creature);
+            enclos.ajouterCreature(creature);
+        }
+        else {
+            System.out.println("L'enclos est plein ! Impossible de transférer la créature...");
+        }
     }
 }
