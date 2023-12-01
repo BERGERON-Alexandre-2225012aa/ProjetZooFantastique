@@ -170,12 +170,16 @@ class VoliereTest {
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Voliere de Zinzin :" +
-                "\n Superficie : 200.0" +
-                "\n Capacité : 20" +
-                "\n Nombre de créatures : 0" +
-                "\n Propreté : propre" +
+                "\n Superficie : 200.0m²" +
                 "\n Hauteur : 10.0m" +
-                "\n Propreté du toit : propre");
+                "\n Capacité : 20 créatures" +
+                "\n Nombre de créatures : 0" +
+                "\n " +
+                "\n Propreté : propre" +
+                "\n Propreté du toit : propre" +
+                "\n " +
+                "\n Nombre de créatures affamés : 0"+
+                "\n Nombre de créatures très affamées : 0");
 
         // Test
         assertEquals(caracteristiquesEnclos, voliere.afficherCaracteristiques());

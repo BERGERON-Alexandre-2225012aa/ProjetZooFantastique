@@ -181,13 +181,18 @@ class AquariumTest {
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Aquarium de Zinzin :" +
-                "\n Superficie : 200.0" +
-                "\n Capacité : 20" +
-                "\n Nombre de créatures : 0" +
-                "\n Propreté : propre" +
+                "\n Superficie : 200.0m²" +
                 "\n Profondeur : 10.0m" +
+                "\n Capacité : 20 créatures" +
+                "\n Nombre de créatures : 0" +
+                "\n " +
+                "\n Propreté : propre" +
                 "\n Propreté du fond : propre" +
-                "\n Salinité : correcte");
+                "\n " +
+                "\n Salinité : correcte" +
+                "\n " +
+                "\n Nombre de créatures affamés : 0"+
+                "\n Nombre de créatures très affamées : 0");
 
         // Test
         assertEquals(caracteristiquesEnclos, aquarium.afficherCaracteristiques());

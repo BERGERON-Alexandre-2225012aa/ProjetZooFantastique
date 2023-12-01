@@ -1,5 +1,7 @@
 package ga2.projetzoofantastique.models;
 
+import ga2.projetzoofantastique.models.enclos.Enclos;
+
 /**
  * Classe Maitre de zoo fantastique
  */
@@ -58,5 +60,11 @@ public class Maitre {
      */
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public String examinerEnclos(Enclos enclos) {
+        return enclos.afficherCaracteristiques() +
+                "\n " +
+                "\n ";
     }
 }

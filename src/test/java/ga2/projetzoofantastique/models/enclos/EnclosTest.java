@@ -188,10 +188,14 @@ class EnclosTest {
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Enclos de Zinzin :" +
-                "\n Superficie : 200.0" +
-                "\n Capacité : 20" +
+                "\n Superficie : 200.0m²" +
+                "\n Capacité : 20 créatures" +
                 "\n Nombre de créatures : 0" +
-                "\n Propreté : propre");
+                "\n " +
+                "\n Propreté : propre" +
+                "\n " +
+                "\n Nombre de créatures affamés : 0"+
+                "\n Nombre de créatures très affamées : 0");
 
         // Test
         assertEquals(caracteristiquesEnclos, enclos.afficherCaracteristiques());

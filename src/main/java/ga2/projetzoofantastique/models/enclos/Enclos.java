@@ -207,16 +207,40 @@ public class Enclos {
         this.setNombreDeCreatures(this.getNombreDeCreatures()-1);
     }
 
+    public int compterCreaturesAffamees() {
+        int compteur = 0;
+        for (int i = 0 ; i < this.getNombreDeCreatures() ; ++i) {
+            if (this.getCreatures().get(i).getFaim() == 1) {
+                ++compteur;
+            }
+        }
+        return compteur;
+    }
+
+    public int compterCreaturesTresAffamees() {
+        int compteur = 0;
+        for (int i = 0 ; i < this.getNombreDeCreatures() ; ++i) {
+            if (this.getCreatures().get(i).getFaim() == 2) {
+                ++compteur;
+            }
+        }
+        return compteur;
+    }
+
     /**
      * Pour afficher les caractéristiques de l'enclos
      * @return
      */
     public String afficherCaracteristiques() {
         return (this.getNom() + " :" +
-                "\n Superficie : " + this.getSuperficie() +
-                "\n Capacité : " + this.getCapacite() +
+                "\n Superficie : " + this.getSuperficie() + "m²" +
+                "\n Capacité : " + this.getCapacite() + " créatures" +
                 "\n Nombre de créatures : " + this.getNombreDeCreatures() +
-                "\n Propreté : " + this.etatProprete());
+                "\n " +
+                "\n Propreté : " + this.etatProprete() +
+                "\n " +
+                "\n Nombre de créatures affamés : " + this.compterCreaturesAffamees() +
+                "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees());
     }
 
     /**

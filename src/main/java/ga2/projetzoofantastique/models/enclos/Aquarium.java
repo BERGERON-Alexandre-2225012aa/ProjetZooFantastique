@@ -131,10 +131,19 @@ public class Aquarium extends Enclos {
      */
     @Override
     public String afficherCaracteristiques() {
-        return super.afficherCaracteristiques() +
+        return (this.getNom() + " :" +
+                "\n Superficie : " + this.getSuperficie() + "m²" +
                 "\n Profondeur : " + this.getProfondeur() + "m" +
+                "\n Capacité : " + this.getCapacite() + " créatures" +
+                "\n Nombre de créatures : " + this.getNombreDeCreatures() +
+                "\n " +
+                "\n Propreté : " + this.etatProprete() +
                 "\n Propreté du fond : " + this.etatPropreteFond() +
-                "\n Salinité : " + this.etatSalinite();
+                "\n " +
+                "\n Salinité : " + this.etatSalinite() +
+                "\n " +
+                "\n Nombre de créatures affamés : " + this.compterCreaturesAffamees() +
+                "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees());
     }
 
     /**
