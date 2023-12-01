@@ -17,7 +17,7 @@ class HurlementTest {
         //On crée le hurlement
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Meute meute = new Meute(enclos);
         Hurlement hurlement = new Hurlement("appartenance", meute);
 
@@ -33,7 +33,7 @@ class HurlementTest {
         //On crée le hurlement
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Meute meute = new Meute(enclos);
         Hurlement hurlement = new Hurlement("appartenance", meute);
 
@@ -50,7 +50,7 @@ class HurlementTest {
         //On crée les hurlements
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Meute meute = new Meute(enclos);
         Hurlement hurlement1 = new Hurlement("appartenance", meute);
         Hurlement hurlement2 = new Hurlement("domination", null);

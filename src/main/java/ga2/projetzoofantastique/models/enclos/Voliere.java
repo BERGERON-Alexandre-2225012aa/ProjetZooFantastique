@@ -23,11 +23,10 @@ public class Voliere extends Enclos {
      * @param nom
      * @param superficie
      * @param capacite
-     * @param zooFantastique
      * @param hauteur
      */
-    public Voliere(String nom, double superficie, int capacite, ZooFantastique zooFantastique, double hauteur) {
-        super(nom, superficie, capacite, zooFantastique);
+    public Voliere(String nom, double superficie, int capacite, double hauteur) {
+        super(nom, superficie, capacite);
         this.hauteur = hauteur;
         this.propreteToit = 2;
     }

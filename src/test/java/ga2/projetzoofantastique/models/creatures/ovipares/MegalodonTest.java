@@ -16,7 +16,7 @@ class MegalodonTest {
         // On crée le megalodon.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 50);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, 50);
         Megalodon megalodon = new Megalodon("Megalodon1", "femelle", 100, 15, aquarium);
 
         // On crée les éléments auxquels les attributs du megalodon doivent correspondre.

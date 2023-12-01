@@ -25,7 +25,7 @@ class EnclosTest {
         //On crée l'enclos.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Enclos1";
@@ -42,7 +42,7 @@ class EnclosTest {
         assertEquals(nombreDeCreatures, enclos.getNombreDeCreatures());
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(proprete, enclos.getProprete());
-        assertEquals(zooFantastique, enclos.getZooFantastique());
+        assertNull(enclos.getZooFantastique());
         assertNull(enclos.getMeute());
     }
 
@@ -54,7 +54,7 @@ class EnclosTest {
         //On crée l'enclos.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Enclos1";
@@ -71,7 +71,6 @@ class EnclosTest {
         assertEquals(nombreDeCreatures, enclos.getNombreDeCreatures());
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(proprete, enclos.getProprete());
-        assertEquals(zooFantastique, enclos.getZooFantastique());
         assertNull(enclos.getMeute());
     }
 
@@ -83,7 +82,7 @@ class EnclosTest {
         //On crée l'enclos.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
 
         Creature creature1 = new Creature("creature1", "male", 5, 0.5, enclos);
         Creature creature2 = new Creature("creature2", "male", 5, 0.5, enclos);
@@ -113,8 +112,8 @@ class EnclosTest {
         assertEquals(nombreDeCreatures, enclos.getNombreDeCreatures());
         assertEquals(creatures, enclos.getCreatures());
         assertEquals(proprete, enclos.getProprete());
-        assertEquals(zooFantastique, enclos.getZooFantastique());
-        assertEquals(null, enclos.getMeute());
+        assertNull(enclos.getZooFantastique());
+        assertNull(enclos.getMeute());
     }
 
     /**
@@ -125,7 +124,7 @@ class EnclosTest {
         // On crée l'enclos
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20);
 
         //On crée la créature à ajouter
         Creature creature = new Creature("Creature", "male", 20, 20, null);
@@ -156,7 +155,7 @@ class EnclosTest {
         // On crée l'enclos
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20);
 
         //On crée la créature à ajouter
         Creature creature = new Creature("Creature", "male", 20, 20, null);
@@ -184,7 +183,7 @@ class EnclosTest {
         // On crée l'enclos
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos de Zinzin", 200, 20);
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Enclos de Zinzin :" +
@@ -209,7 +208,7 @@ class EnclosTest {
         //On crée la créature
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos", 200, 20);
         Creature creature = new Creature("Creature", "male",10, 10, null);
 
         //On l'ajoute dans l'enclos
@@ -240,7 +239,7 @@ class EnclosTest {
         //On crée l'enclos
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos", 200, 20);
 
         //On crée les créatures
         Creature creature1 = new Creature("Creature1", "male",10, 10, null);
@@ -274,7 +273,7 @@ class EnclosTest {
         //On crée l'enclos
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos", 200, 20);
 
         //On modifie la valeur de propreté
         enclos.setProprete(0);

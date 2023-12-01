@@ -23,7 +23,7 @@ class LycanthropeTest {
         // On crée le lycanthrope.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
@@ -77,7 +77,7 @@ class LycanthropeTest {
         // On crée le lycanthrope.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
@@ -131,7 +131,7 @@ class LycanthropeTest {
         // On crée le lycanthrope
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
 
         // On modifie les valeurs

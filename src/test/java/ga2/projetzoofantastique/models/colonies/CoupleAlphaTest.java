@@ -50,7 +50,7 @@ class CoupleAlphaTest {
         //On crée les valeurs à modifier
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Lycanthrope lycanthropeMale = new Lycanthrope("LycanthropeMale", "male", 25, 5, enclos);
         Lycanthrope lycanthropeFemelle = new Lycanthrope("LycanthropeFemelle", "femelle", 25, 5, enclos);
 

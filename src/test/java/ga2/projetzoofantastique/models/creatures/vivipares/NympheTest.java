@@ -19,7 +19,7 @@ class NympheTest {
         // On crée la nymphe.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos aucun = new Enclos("Aucun enclos", 0, 0, zooFantastique);
+        Enclos aucun = new Enclos("Aucun enclos", 0, 0);
         Nymphe nymphe = new Nymphe("Nymphe1", "femelle", 50, 10, aucun );
 
         // On crée les éléments auxquels les attributs de la nymphe doivent correspondre.

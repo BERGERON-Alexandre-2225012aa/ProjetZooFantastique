@@ -52,16 +52,15 @@ public class Enclos {
      * @param nom
      * @param superficie
      * @param capacite
-     * @param zooFantastique
      */
-    public Enclos(String nom, double superficie, int capacite, ZooFantastique zooFantastique) {
+    public Enclos(String nom, double superficie, int capacite) {
         this.nom = nom;
         this.superficie = superficie;
         this.capacite = capacite;
         this.nombreDeCreatures = 0;
         this.creatures = new ArrayList<>();
         this.proprete = 2;
-        this.zooFantastique = zooFantastique;
+        this.zooFantastique = null;
         this.meute = null;
     }
     // Getters
@@ -157,6 +156,14 @@ public class Enclos {
      */
     public void setMeute(Meute meute) {
         this.meute = meute;
+    }
+
+    /**
+     * Setter du zoo fantastique de l'enclos
+     * @param zooFantastique
+     */
+    public void setZooFantastique(ZooFantastique zooFantastique) {
+        this.zooFantastique = zooFantastique;
     }
 
     /**

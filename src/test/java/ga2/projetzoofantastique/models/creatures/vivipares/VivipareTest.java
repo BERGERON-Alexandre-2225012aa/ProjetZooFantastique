@@ -19,7 +19,7 @@ class VivipareTest {
         // On crée le vivipare.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Creature creature = new Creature("Vivipare1", "male", 5, 0.5, enclos);
 
         // On crée les éléments auxquels les attributs du vivipare doivent correspondre.

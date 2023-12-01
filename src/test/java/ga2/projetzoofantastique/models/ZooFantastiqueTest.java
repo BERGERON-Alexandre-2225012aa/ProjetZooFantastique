@@ -1,7 +1,12 @@
 package ga2.projetzoofantastique.models;
 
 import ga2.projetzoofantastique.models.colonies.Colonie;
+import ga2.projetzoofantastique.models.creatures.ovipares.Kraken;
+import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
+import ga2.projetzoofantastique.models.creatures.vivipares.Licorne;
+import ga2.projetzoofantastique.models.enclos.Aquarium;
 import ga2.projetzoofantastique.models.enclos.Enclos;
+import ga2.projetzoofantastique.models.enclos.Voliere;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -64,7 +69,7 @@ class ZooFantastiqueTest {
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique", null, 10);
 
         //On modifie les valeurs
-        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos", 200, 20);
         ArrayList<Enclos> listeEnclos = new ArrayList<>();
         listeEnclos.add(enclos);
         zooFantastique.setEnclos(listeEnclos);
@@ -83,5 +88,32 @@ class ZooFantastiqueTest {
         assertEquals(nombreMaxEnclos, zooFantastique.getNombreMaxEnclos());
         assertEquals(listeEnclos, zooFantastique.getEnclos());
         assertEquals(colonie, zooFantastique.getColonie());
+    }
+
+    @Test
+    public void testAfficherNombreCreatures() {
+        //On crée le zoo et ses enclos
+        Maitre maitre = new Maitre("Jérome", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo", maitre, 20);
+        Enclos enclos1 = new Enclos("Enclos de licornes 1", 200, 20);
+        Aquarium aquarium1 = new Aquarium("Aquarium de krakens 1", 200, 20, 20);
+        Voliere voliere1 = new Voliere("Voliere de Phénix 1", 200, 20, 20);
+
+        //On ajoute les enclos au zoo
+        zooFantastique.ajouterEnclos(enclos1);
+        zooFantastique.ajouterEnclos(aquarium1);
+        zooFantastique.ajouterEnclos(voliere1);
+
+        //On crée des créatures
+        Licorne licorne = new Licorne("Licorne 1", "male", 20,20,enclos1);
+        Kraken kraken = new Kraken("Kraken 1", "male", 20, 20, aquarium1);
+        Phenix phenix = new Phenix("Phenix 1", "male", 20, 20, voliere1);
+
+        enclos1.ajouterCreature(licorne);
+        aquarium1.ajouterCreature(kraken);
+        voliere1.ajouterCreature(phenix);
+
+        //On teste
+        assertEquals(3, zooFantastique.afficherNombreCreatures());
     }
 }

@@ -27,7 +27,7 @@ class AquariumTest {
         //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, 10);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Aquarium1";
@@ -47,7 +47,7 @@ class AquariumTest {
         assertEquals(nombreDeCreatures, aquarium.getNombreDeCreatures());
         assertEquals(creatures, aquarium.getCreatures());
         assertEquals(proprete, aquarium.getProprete());
-        assertEquals(zooFantastique, aquarium.getZooFantastique());
+        assertNull(aquarium.getZooFantastique());
         assertNull(aquarium.getMeute());
         assertEquals(profondeur, aquarium.getProfondeur());
         assertEquals(salinite, aquarium.getSalinite());
@@ -61,7 +61,7 @@ class AquariumTest {
         //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, 10);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Aquarium1";
@@ -81,7 +81,7 @@ class AquariumTest {
         assertEquals(nombreDeCreatures, aquarium.getNombreDeCreatures());
         assertEquals(creatures, aquarium.getCreatures());
         assertEquals(proprete, aquarium.getProprete());
-        assertEquals(zooFantastique, aquarium.getZooFantastique());
+        assertNull(aquarium.getZooFantastique());
         assertNull(aquarium.getMeute());
         assertEquals(profondeur, aquarium.getProfondeur());
         assertEquals(salinite, aquarium.getSalinite());
@@ -96,7 +96,7 @@ class AquariumTest {
         //On crée l'aquarium.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, 10);
 
         Sirene sirene1 = new Sirene("Sirene1", "male", 5, 0.5, aquarium);
         Sirene sirene2 = new Sirene("Sirene2", "male", 5, 0.5, aquarium);
@@ -129,7 +129,7 @@ class AquariumTest {
         assertEquals(nombreDeCreatures, aquarium.getNombreDeCreatures());
         assertEquals(creatures, aquarium.getCreatures());
         assertEquals(proprete, aquarium.getProprete());
-        assertEquals(zooFantastique, aquarium.getZooFantastique());
+        assertNull(aquarium.getZooFantastique());
         assertNull(aquarium.getMeute());
         assertEquals(salinite, aquarium.getSalinite());
         assertEquals(propreteFond, aquarium.getPropreteFond());
@@ -143,7 +143,7 @@ class AquariumTest {
         // On crée l'aquarium
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Aquarium aquarium = new Aquarium("Aquarium de Zinzin", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium de Zinzin", 200, 20, 10);
 
         //On crée la créature à ajouter
         Creature creature = new Creature("Creature", "male", 20, 20, null);
@@ -177,7 +177,7 @@ class AquariumTest {
         // On crée l'aquarium
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Aquarium aquarium = new Aquarium("Aquarium de Zinzin", 200, 20, zooFantastique, 10);
+        Aquarium aquarium = new Aquarium("Aquarium de Zinzin", 200, 20, 10);
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Aquarium de Zinzin :" +
@@ -206,7 +206,7 @@ class AquariumTest {
         //On crée l'aquarium
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Aquarium aquarium = new Aquarium("Aquarium de zinzin", 200, 20, zooFantastique, 20);
+        Aquarium aquarium = new Aquarium("Aquarium de zinzin", 200, 20, 20);
 
         //On modifie la valeur de propreté
         aquarium.setProprete(0);
@@ -228,7 +228,7 @@ class AquariumTest {
         //On crée l'aquarium
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Aquarium aquarium = new Aquarium("Aquarium de zinzin", 200, 20, zooFantastique, 20);
+        Aquarium aquarium = new Aquarium("Aquarium de zinzin", 200, 20, 20);
 
         //On modifie la valeur de salinité
         aquarium.setSalinite(0);

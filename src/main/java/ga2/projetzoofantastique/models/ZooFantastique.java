@@ -107,4 +107,46 @@ public class ZooFantastique {
     public void setNombreMaxEnclos(int nombreMaxEnclos) {
         this.nombreMaxEnclos = nombreMaxEnclos;
     }
+
+    /**
+     * Ajouter un enclos au zoo fantastique
+     * @param enclos
+     */
+    public void ajouterEnclos(Enclos enclos) {
+        if (this.getEnclos().size() < this.getNombreMaxEnclos()) {
+            enclos.setZooFantastique(this);
+            this.enclos.add(enclos);
+        }
+        else {
+            System.out.println("Plus de place dans ce zoo fantastique...");
+        }
+    }
+
+    /**
+     * Afficher le nombre total de créatures du zoo fantastique
+     * @return
+     */
+    public int afficherNombreCreatures() {
+        int compteur = 0;
+        for (int i = 0 ; i < this.getEnclos().size() ; ++i) {
+            for (int j = 0 ; j < this.getEnclos().get(i).getNombreDeCreatures() ; ++j) {
+                ++compteur;
+            }
+        }
+        return compteur;
+    }
+
+    /**
+     * Afficher la liste des noms des créatures du zoo fantastique
+     * @return
+     */
+    public ArrayList<String> afficherCreatures() {
+        ArrayList<String> nomsCreatures = new ArrayList<>();
+        for (int i = 0 ; i < this.getEnclos().size() ; ++i) {
+            for (int j = 0 ; j < this.getEnclos().get(i).getNombreDeCreatures() ; ++j) {
+                nomsCreatures.add(this.getEnclos().get(i).getCreatures().get(j).getNom() + "\n");
+            }
+        }
+        return nomsCreatures;
+    }
 }

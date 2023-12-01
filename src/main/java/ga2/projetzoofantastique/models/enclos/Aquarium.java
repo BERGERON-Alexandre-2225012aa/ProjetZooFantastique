@@ -27,11 +27,10 @@ public class Aquarium extends Enclos {
      * @param nom
      * @param superficie
      * @param capacite
-     * @param zooFantastique
      * @param profondeur
      */
-    public Aquarium(String nom, double superficie, int capacite, ZooFantastique zooFantastique, double profondeur) {
-        super(nom, superficie, capacite, zooFantastique);
+    public Aquarium(String nom, double superficie, int capacite, double profondeur) {
+        super(nom, superficie, capacite);
         this.profondeur = profondeur;
         this.salinite = 2;
         this.propreteFond = 2;

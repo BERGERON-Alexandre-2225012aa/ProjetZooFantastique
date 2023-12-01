@@ -18,7 +18,7 @@ class CreatureTest {
         // On crée la créature.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Creature creature = new Creature("Creature1", "male", 5, 0.5, enclos);
 
         // On crée les éléments auxquels les attributs de la créature doivent correspondre.
@@ -51,7 +51,7 @@ class CreatureTest {
         // On crée la créature.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Creature creature = new Creature("Creature1", "male", 5, 0.5, enclos);
 
         // On crée les éléments auxquels les attributs de la créature doivent correspondre.
@@ -84,10 +84,10 @@ class CreatureTest {
         // On crée la créature.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Creature creature = new Creature("Creature1", "male", 5, 0.5, enclos);
 
-        Enclos enclos2 = new Enclos("Enclos2",200, 20, zooFantastique);
+        Enclos enclos2 = new Enclos("Enclos2",200, 20);
 
         // On la modifie avec les setters.
         creature.setPoids(6);
@@ -125,7 +125,7 @@ class CreatureTest {
         //On crée la créature
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Enclos enclos = new Enclos("Enclos", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos", 200, 20);
         Creature creature = new Creature("Creature", "male",10, 10, enclos);
 
         //On crée la valeur à vérifier

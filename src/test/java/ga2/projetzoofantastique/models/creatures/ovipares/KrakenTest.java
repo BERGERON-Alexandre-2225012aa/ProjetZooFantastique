@@ -16,7 +16,7 @@ class KrakenTest {
         // On crée le kraken.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, zooFantastique, 50);
+        Aquarium aquarium = new Aquarium("Aquarium1", 200, 20, 50);
         Kraken kraken = new Kraken("Kraken1", "male", 250, 20, aquarium);
 
         // On crée les éléments auxquels les attributs du kraken doivent correspondre.

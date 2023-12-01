@@ -16,7 +16,7 @@ class DragonTest {
         // On crée le dragon.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Dragon dragon = new Dragon("Dragon1", "male", 500, 30, enclos);
 
         // On crée les éléments auxquels les attributs du dragon doivent correspondre.

@@ -19,7 +19,7 @@ class LicorneTest {
         // On crée la licorne.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Licorne licorne = new Licorne("Licorne1", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs de la licorne doivent correspondre.
@@ -63,7 +63,7 @@ class LicorneTest {
         // On crée la licorne.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Enclos enclos = new Enclos("Enclos1", 200, 20, zooFantastique);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
         Licorne licorne = new Licorne("Licorne1", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs de la licorne doivent correspondre.

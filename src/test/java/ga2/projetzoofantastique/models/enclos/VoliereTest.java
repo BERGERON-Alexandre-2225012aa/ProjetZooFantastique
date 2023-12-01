@@ -22,7 +22,7 @@ class VoliereTest {
         //On crée la volière.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Voliere voliere = new Voliere("Voliere1", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Voliere1", 200, 20, 10);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Voliere1";
@@ -41,7 +41,7 @@ class VoliereTest {
         assertEquals(nombreDeCreatures, voliere.getNombreDeCreatures());
         assertEquals(creatures, voliere.getCreatures());
         assertEquals(proprete, voliere.getProprete());
-        assertEquals(zooFantastique, voliere.getZooFantastique());
+        assertNull(voliere.getZooFantastique());
         assertNull(voliere.getMeute());
         assertEquals(hauteur, voliere.getHauteur());
         assertEquals(propreteToit, voliere.getPropreteToit());
@@ -54,7 +54,7 @@ class VoliereTest {
         //On crée la volière.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Voliere voliere = new Voliere("Voliere1", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Voliere1", 200, 20, 10);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Voliere1";
@@ -73,7 +73,7 @@ class VoliereTest {
         assertEquals(nombreDeCreatures, voliere.getNombreDeCreatures());
         assertEquals(creatures, voliere.getCreatures());
         assertEquals(proprete, voliere.getProprete());
-        assertEquals(zooFantastique, voliere.getZooFantastique());
+        assertNull(voliere.getZooFantastique());
         assertNull(voliere.getMeute());
         assertEquals(hauteur, voliere.getHauteur());
         assertEquals(propreteToit, voliere.getPropreteToit());
@@ -87,7 +87,7 @@ class VoliereTest {
         //On crée la volière.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 5);
-        Voliere voliere = new Voliere("Voliere1", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Voliere1", 200, 20, 10);
 
         Phenix phenix1 = new Phenix("Sirene1", "male", 5, 0.5, voliere);
         Phenix phenix2 = new Phenix("Sirene2", "male", 5, 0.5, voliere);
@@ -119,7 +119,7 @@ class VoliereTest {
         assertEquals(nombreDeCreatures, voliere.getNombreDeCreatures());
         assertEquals(creatures, voliere.getCreatures());
         assertEquals(proprete, voliere.getProprete());
-        assertEquals(zooFantastique, voliere.getZooFantastique());
+        assertNull(voliere.getZooFantastique());
         assertNull(voliere.getMeute());
         assertEquals(propreteFond, voliere.getPropreteToit());
     }
@@ -132,7 +132,7 @@ class VoliereTest {
         // On crée la volière
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Voliere voliere = new Voliere("Volière de Zinzin", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Volière de Zinzin", 200, 20, 10);
 
         //On crée la créature à ajouter
         Creature creature = new Creature("Creature", "male", 20, 20, null);
@@ -166,7 +166,7 @@ class VoliereTest {
         // On crée la volière
         Maitre maitre = new Maitre("Jean", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
-        Voliere voliere = new Voliere("Voliere de Zinzin", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Voliere de Zinzin", 200, 20, 10);
 
         // On crée les valeurs à vérifier
         String caracteristiquesEnclos = ("Voliere de Zinzin :" +
@@ -193,7 +193,7 @@ class VoliereTest {
         //On crée la volière
         Maitre maitre = new Maitre("Mamadou", "male");
         ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
-        Voliere voliere = new Voliere("Volière de zinzin", 200, 20, zooFantastique, 20);
+        Voliere voliere = new Voliere("Volière de zinzin", 200, 20, 20);
 
         //On modifie la valeur de propreté
         voliere.setProprete(0);

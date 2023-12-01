@@ -16,7 +16,7 @@ class PhenixTest {
         // On crée le phénix.
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
-        Voliere voliere = new Voliere("Voliere1", 200, 20, zooFantastique, 10);
+        Voliere voliere = new Voliere("Voliere1", 200, 20, 10);
         Phenix phenix = new Phenix("Phenix1", "male", 25, 5, voliere);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
