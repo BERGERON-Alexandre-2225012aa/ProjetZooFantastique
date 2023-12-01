@@ -144,9 +144,21 @@ public class ZooFantastique {
         ArrayList<String> nomsCreatures = new ArrayList<>();
         for (int i = 0 ; i < this.getEnclos().size() ; ++i) {
             for (int j = 0 ; j < this.getEnclos().get(i).getNombreDeCreatures() ; ++j) {
-                nomsCreatures.add(this.getEnclos().get(i).getCreatures().get(j).getNom() + "\n");
+                nomsCreatures.add(this.getEnclos().get(i).getCreatures().get(j).getNom());
             }
         }
         return nomsCreatures;
+    }
+
+    /**
+     * Afficher la liste des noms des enclos du zoo fantastique
+     * @return
+     */
+    public ArrayList<String> afficherEnclos() {
+        ArrayList<String> nomsEnclos = new ArrayList<>();
+        for (int i = 0 ; i < this.getEnclos().size() ; ++i) {
+            nomsEnclos.add(this.getEnclos().get(i).getNom());
+        }
+        return nomsEnclos;
     }
 }

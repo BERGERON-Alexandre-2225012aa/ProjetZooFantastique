@@ -90,6 +90,9 @@ class ZooFantastiqueTest {
         assertEquals(colonie, zooFantastique.getColonie());
     }
 
+    /**
+     * Test d'affichage du nombre de créatures d'un zoo
+     */
     @Test
     public void testAfficherNombreCreatures() {
         //On crée le zoo et ses enclos
@@ -115,5 +118,68 @@ class ZooFantastiqueTest {
 
         //On teste
         assertEquals(3, zooFantastique.afficherNombreCreatures());
+    }
+
+    /**
+     * Test d'affichage de tous les noms de créatures d'un zoo
+     */
+    @Test
+    public void testAfficherCreatures() {
+        //On crée le zoo et ses enclos
+        Maitre maitre = new Maitre("Jérome", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo", maitre, 20);
+        Enclos enclos1 = new Enclos("Enclos de licornes 1", 200, 20);
+        Aquarium aquarium1 = new Aquarium("Aquarium de krakens 1", 200, 20, 20);
+        Voliere voliere1 = new Voliere("Voliere de Phénix 1", 200, 20, 20);
+
+        //On ajoute les enclos au zoo
+        zooFantastique.ajouterEnclos(enclos1);
+        zooFantastique.ajouterEnclos(aquarium1);
+        zooFantastique.ajouterEnclos(voliere1);
+
+        //On crée des créatures
+        Licorne licorne = new Licorne("Licorne 1", "male", 20,20,enclos1);
+        Kraken kraken = new Kraken("Kraken 1", "male", 20, 20, aquarium1);
+        Phenix phenix = new Phenix("Phenix 1", "male", 20, 20, voliere1);
+
+        enclos1.ajouterCreature(licorne);
+        aquarium1.ajouterCreature(kraken);
+        voliere1.ajouterCreature(phenix);
+
+        //Valeur à vérifier
+        ArrayList<String> nomsCreatures = new ArrayList<>();
+        nomsCreatures.add("Licorne 1");
+        nomsCreatures.add("Kraken 1");
+        nomsCreatures.add("Phenix 1");
+
+        //On teste
+        assertEquals(nomsCreatures, zooFantastique.afficherCreatures());
+    }
+
+    /**
+     * Test d'affichage de tous les noms des enclos d'un zoo
+     */
+    @Test
+    public void testAfficherEnclos() {
+        //On crée le zoo et ses enclos
+        Maitre maitre = new Maitre("Jérome", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo", maitre, 20);
+        Enclos enclos1 = new Enclos("Enclos de licornes 1", 200, 20);
+        Aquarium aquarium1 = new Aquarium("Aquarium de krakens 1", 200, 20, 20);
+        Voliere voliere1 = new Voliere("Voliere de Phénix 1", 200, 20, 20);
+
+        //On ajoute les enclos au zoo
+        zooFantastique.ajouterEnclos(enclos1);
+        zooFantastique.ajouterEnclos(aquarium1);
+        zooFantastique.ajouterEnclos(voliere1);
+
+        //Valeur à vérifier
+        ArrayList<String> nomsEnclos = new ArrayList<>();
+        nomsEnclos.add("Enclos de licornes 1");
+        nomsEnclos.add("Aquarium de krakens 1");
+        nomsEnclos.add("Voliere de Phénix 1");
+
+        //On teste
+        assertEquals(nomsEnclos, zooFantastique.afficherEnclos());
     }
 }
