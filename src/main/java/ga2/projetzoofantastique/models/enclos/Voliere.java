@@ -73,6 +73,10 @@ public class Voliere extends Enclos {
         }
     }
 
+    /**
+     * Ajouter une créature dans la volière
+     * @param creature
+     */
     @Override
     public void ajouterCreature(Creature creature) {
         if (!(creature instanceof Aerien)) {
@@ -85,10 +89,23 @@ public class Voliere extends Enclos {
         }
     }
 
+    /**
+     * Afficher les caractéristiques de la volière.
+     * @return
+     */
     @Override
     public String afficherCaracteristiques() {
         return super.afficherCaracteristiques() +
                 "\n Hauteur : " + this.getHauteur() + "m" +
                 "\n Propreté du toit : " + this.etatPropreteToit();
+    }
+
+    /**
+     * Nettoyer la volière, mets les indicateurs de propreté à 2 (toit et normal)
+     */
+    @Override
+    public void nettoyer() {
+        super.nettoyer();
+        this.setPropreteToit(2);
     }
 }

@@ -3,6 +3,8 @@ package ga2.projetzoofantastique.models.enclos;
 import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.creatures.Creature;
+import ga2.projetzoofantastique.models.creatures.ovipares.Dragon;
+import ga2.projetzoofantastique.models.creatures.ovipares.Kraken;
 import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
 import org.junit.jupiter.api.Test;
 
@@ -120,6 +122,85 @@ class VoliereTest {
         assertEquals(zooFantastique, voliere.getZooFantastique());
         assertNull(voliere.getMeute());
         assertEquals(propreteFond, voliere.getPropreteToit());
+    }
+
+    /**
+     * Test de l'ajout de créature dans un volière
+     */
+    @Test
+    public void testAjouterCreature() {
+        // On crée la volière
+        Maitre maitre = new Maitre("Jean", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
+        Voliere voliere = new Voliere("Volière de Zinzin", 200, 20, zooFantastique, 10);
+
+        //On crée la créature à ajouter
+        Creature creature = new Creature("Creature", "male", 20, 20, null);
+        Kraken kraken = new Kraken("Kraken", "male", 20, 20, null);
+        Phenix phenix = new Phenix("Phenix", "male", 20, 20, null);
+        Dragon dragon = new Dragon("Dragon", "male", 20, 20, null);
+
+        //On ajoute
+        voliere.ajouterCreature(creature);
+        voliere.ajouterCreature(kraken);
+        voliere.ajouterCreature(phenix);
+        voliere.ajouterCreature(dragon);
+
+        //Valeurs à vérifier
+        ArrayList<Creature> creatures = new ArrayList<>();
+        creatures.add(phenix);
+        creatures.add(dragon);
+
+        //On teste
+        assertEquals(voliere, phenix.getEnclos());
+        assertEquals(voliere, dragon.getEnclos());
+        assertEquals(creatures, voliere.getCreatures());
+        assertEquals(2, voliere.getNombreDeCreatures());
+    }
+
+    /**
+     * Test afficherCaracteristiques()
+     */
+    @Test
+    public void testAfficherCaracteristiques() {
+        // On crée la volière
+        Maitre maitre = new Maitre("Jean", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo de fou", maitre, 20);
+        Voliere voliere = new Voliere("Voliere de Zinzin", 200, 20, zooFantastique, 10);
+
+        // On crée les valeurs à vérifier
+        String caracteristiquesEnclos = ("Voliere de Zinzin :" +
+                "\n Superficie : 200.0" +
+                "\n Capacité : 20" +
+                "\n Nombre de créatures : 0" +
+                "\n Propreté : propre" +
+                "\n Hauteur : 10.0m" +
+                "\n Propreté du toit : propre");
+
+        // Test
+        assertEquals(caracteristiquesEnclos, voliere.afficherCaracteristiques());
+    }
+
+    /**
+     * Test de la méthode nettoyer
+     */
+    @Test
+    public void testNettoyer() {
+        //On crée la volière
+        Maitre maitre = new Maitre("Mamadou", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo fou", maitre, 20);
+        Voliere voliere = new Voliere("Volière de zinzin", 200, 20, zooFantastique, 20);
+
+        //On modifie la valeur de propreté
+        voliere.setProprete(0);
+        voliere.setPropreteToit(0);
+
+        //On nettoie
+        voliere.nettoyer();
+
+        //On teste
+        assertEquals(2, voliere.getProprete());
+        assertEquals(2, voliere.getPropreteToit());
     }
 
 }
