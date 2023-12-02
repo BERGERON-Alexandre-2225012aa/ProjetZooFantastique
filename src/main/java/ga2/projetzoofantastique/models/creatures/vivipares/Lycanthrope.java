@@ -202,4 +202,37 @@ public class Lycanthrope extends Vivipare implements Terrestre {
             this.mourrir();
         }
     }
+
+    /**
+     * Rejoindre une meute
+     * @param meute
+     */
+    public void rejoindreMeute(Meute meute) {
+        meute.ajouterLycanthrope(this);
+    }
+
+    /**
+     * Quitter une meute
+     */
+    public void quitterMeute() {
+        this.getMeute().retirerLycanthrope(this);
+    }
+
+    /**
+     * Devenir humain, revient à la disparition du lycanthrope
+     */
+    public void devenirHumain() {
+        this.mourrir();
+    }
+
+    /**
+     * Mourrir fait quitter la meute si le lycanthrope en a une
+     */
+    @Override
+    public void mourrir() {
+        super.mourrir();
+        if (!(this.getMeute() == null)) {
+            this.getMeute().retirerLycanthrope(this);
+        }
+    }
 }
