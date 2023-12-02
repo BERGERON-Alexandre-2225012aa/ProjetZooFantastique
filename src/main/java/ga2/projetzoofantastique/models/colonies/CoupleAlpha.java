@@ -63,4 +63,19 @@ public class CoupleAlpha {
             }
         }
     }
+
+    /**
+     * Réaliser une reproduction
+     */
+    public void realiserReproduction() {
+        this.getLycanthropeFemelle().mettreBas();
+    }
+
+    /**
+     * Afficher les caractéristiques du couple alpha
+     * @return
+     */
+    public String afficherCaracteristiques() {
+        return this.getLycanthropeMale().getNom() + ", " + this.getLycanthropeFemelle().getNom();
+    }
 }

@@ -202,7 +202,7 @@ public class Meute {
      * Lancer une reproduction dans la meute
      */
     public void lancerReproduction() {
-        this.getCoupleAlpha().getLycanthropeFemelle().mettreBas();
+        this.getCoupleAlpha().realiserReproduction();
     }
 
     /**
