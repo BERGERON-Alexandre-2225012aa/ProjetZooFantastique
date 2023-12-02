@@ -52,6 +52,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
      */
     public Lycanthrope(String nom, String sexe, double poids, double taille, Enclos enclos) {
         super(nom, sexe, poids, taille, enclos);
+        Random random = new Random();
         this.moisSaisonAmour = new ArrayList<>();
         this.moisSaisonAmour.add(4);
         this.moisSaisonAmour.add(5);
@@ -59,7 +60,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
         this.porteeMinimum = 1;
         this.porteeMaximum = 7;
         this.tempsAvantNaissance = 9;
-        this.force = 0;
+        this.force = random.nextInt(10);
         this.facteurDomination = 0;
         this.rang = 'γ';
         this.impetuosite = 0;

@@ -13,17 +13,34 @@ import ga2.projetzoofantastique.models.creatures.vivipares.Sirene;
 import java.text.DecimalFormat;
 import java.util.Random;
 
+
+/**
+ * Thread Naissance pour gérer les naissances de créatures
+ */
 public class Naissance extends Thread {
+    /**
+     * Temps avant la naissance de la créature
+     */
     private int tempsAvantNaissance;
+    /**
+     * Parent de la créature
+     */
     private Creature creatureParent;
+
+    /**
+     * Constructeur du thread
+     * @param tempsAvantNaissance
+     * @param creatureParent
+     */
     public Naissance(int tempsAvantNaissance, Creature creatureParent) {
         this.tempsAvantNaissance = tempsAvantNaissance;
         this.creatureParent = creatureParent;
     }
+
     @Override
     public void run() {
         try {
-            Thread.sleep(1000 *tempsAvantNaissance);
+            Thread.sleep(30000 *tempsAvantNaissance);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
