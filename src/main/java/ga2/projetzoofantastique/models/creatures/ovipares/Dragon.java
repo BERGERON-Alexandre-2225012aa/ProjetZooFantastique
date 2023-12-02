@@ -5,7 +5,10 @@ import ga2.projetzoofantastique.models.creatures.interfaces.Aquatique;
 import ga2.projetzoofantastique.models.creatures.interfaces.Immortel;
 import ga2.projetzoofantastique.models.creatures.interfaces.Terrestre;
 import ga2.projetzoofantastique.models.enclos.Enclos;
+import ga2.projetzoofantastique.models.threads.Naissance;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Classe Dragon, sous classe de ovipare qui implémente toutes les interfaces
@@ -44,8 +47,25 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
         return nombreTotal;
     }
 
+    /**
+     * Méthode pour pondre
+     */
     public void pondre() {
-        // plus tard
+        if (this.getSexe() == "femelle") {
+            Random random = new Random();
+            int nombrePetits = random.nextInt(this.getPorteeMinimum(), this.getPorteeMaximum());
+
+            for (int i = 0 ; i < nombrePetits ; ++i) {
+                Naissance naissance = new Naissance(this.getTempsAvantNaissance(), this);
+                Thread thread = new Thread(naissance);
+                thread.start();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     /**

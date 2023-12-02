@@ -2,7 +2,10 @@ package ga2.projetzoofantastique.models.creatures.vivipares;
 
 import ga2.projetzoofantastique.models.creatures.interfaces.Immortel;
 import ga2.projetzoofantastique.models.enclos.Enclos;
+import ga2.projetzoofantastique.models.threads.Naissance;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Classe Nymphe, sous classe de Vivipare qui implémente l'interface Immortel
@@ -47,7 +50,21 @@ public class Nymphe extends Vivipare implements Immortel {
      */
     @Override
     public void mettreBas() {
-        //plus tard
+        if (this.getSexe() == "femelle") {
+            Random random = new Random();
+            int nombrePetits = random.nextInt(this.getPorteeMinimum(), this.getPorteeMaximum());
+
+            for (int i = 0 ; i < nombrePetits ; ++i) {
+                Naissance naissance = new Naissance(this.getTempsAvantNaissance(), this);
+                Thread thread = new Thread(naissance);
+                thread.start();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     @Override

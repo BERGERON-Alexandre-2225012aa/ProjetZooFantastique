@@ -3,7 +3,10 @@ package ga2.projetzoofantastique.models.creatures.ovipares;
 import ga2.projetzoofantastique.models.creatures.interfaces.Immortel;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.creatures.interfaces.Aerien;
+import ga2.projetzoofantastique.models.threads.Naissance;
+
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Classe Phenix, sous classe de ovipare qui implémente l'interface Aerien
@@ -58,8 +61,26 @@ public class Phenix extends Ovipare implements Aerien, Immortel {
             this.renaitre();
         }
     }
+
+    /**
+     * Méthode pour pondre
+     */
     public void pondre() {
-        // plus tard
+        if (this.getSexe() == "femelle") {
+            Random random = new Random();
+            int nombrePetits = random.nextInt(this.getPorteeMinimum(), this.getPorteeMaximum());
+
+            for (int i = 0 ; i < nombrePetits ; ++i) {
+                Naissance naissance = new Naissance(this.getTempsAvantNaissance(), this);
+                Thread thread = new Thread(naissance);
+                thread.start();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
     }
 
     /**
