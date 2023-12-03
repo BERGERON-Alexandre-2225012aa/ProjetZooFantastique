@@ -78,4 +78,7 @@ public class Megalodon extends Ovipare implements Aquatique {
             this.mourrir();
         }
     }
+    public void emettreSon() {
+        System.out.println(this.getNom() + " crie : CRRR! BloupBloup!");
+    }
 }
