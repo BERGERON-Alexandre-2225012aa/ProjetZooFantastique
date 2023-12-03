@@ -36,6 +36,7 @@ public class Meute {
         this.lycanthropes = new ArrayList<>();
         this.enclos = enclos;
         enclos.setMeute(this);
+        this.getEnclos().getZooFantastique().getColonie().ajouterMeute(this);
     }
 
     /**

@@ -1,11 +1,13 @@
 package ga2.projetzoofantastique.models.creatures.vivipares;
 
 import ga2.projetzoofantastique.models.Maitre;
+import ga2.projetzoofantastique.models.colonies.Hurlement;
 import ga2.projetzoofantastique.models.colonies.Meute;
 import ga2.projetzoofantastique.models.creatures.interfaces.Terrestre;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.threads.Naissance;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -233,6 +235,88 @@ public class Lycanthrope extends Vivipare implements Terrestre {
         super.mourrir();
         if (!(this.getMeute() == null)) {
             this.getMeute().retirerLycanthrope(this);
+        }
+    }
+
+    @Override
+    public String afficherCaracteristiques() {
+        return super.afficherCaracteristiques() +
+                "\n " +
+                "\n Meute : " + this.getMeute().getEnclos().getNom() +
+                "\n " +
+                "\n Force : " + this.getForce() +
+                "\n Impétuosité : " + this.getImpetuosite() +
+                "\n Domination : " + this.getFacteurDomination() +
+                "\n " +
+                "\n Rang : " + this.getRang();
+    }
+
+    public ArrayList<Lycanthrope> listeLycanthropeMeuteSaufThis() {
+        ArrayList<Lycanthrope> lycanthropes = new ArrayList<>();
+        for (int i = 0 ; i < this.getMeute().getLycanthropes().size() ; i++) {
+            if (!(this.getMeute().getLycanthropes().get(i) == this)) {
+                lycanthropes.add(this.getMeute().getLycanthropes().get(i));
+            }
+        }
+        return lycanthropes;
+    }
+
+    /**
+     * Le lycanthrope emet un hurlement
+     * @param hurlement
+     */
+    public void emettreSon(Hurlement hurlement) {
+        if (hurlement.getType() == "appartenance") {
+            System.out.println(this.getNom() + " affirme son appartenance à la meute " + this.getMeute().getEnclos().getNom() + " !");
+            for (int i = 0 ; i < this.getMeute().getEnclos().getZooFantastique().getColonie().getMeutes().size() ; ++i) {
+                if (!(this.getMeute() == this.getMeute().getEnclos().getZooFantastique().getColonie().getMeutes().get(i))) {
+                    System.out.println("La meute " + this.getMeute().getEnclos().getZooFantastique().getColonie().getMeutes().get(i).getEnclos().getNom() + " répond à la meute " + hurlement.getMeute().getEnclos().getNom() + " !");
+                }
+            }
+        }
+        else {
+            ArrayList<Lycanthrope> lycanthropesSaufThis = this.listeLycanthropeMeuteSaufThis();
+            Random random = new Random();
+            int randomInt = random.nextInt(lycanthropesSaufThis.size());
+            System.out.println(this.getNom() + " exprime sa domination envers " + lycanthropesSaufThis.get(randomInt).getNom() + " !");
+            lycanthropesSaufThis.get(randomInt).entendreSon(hurlement, this);
+        }
+    }
+
+    /**
+     * Renvoie l'indice correspondant au rang dans la liste des rangs où 0 = alpha, 1 = beta, ...
+     * @return
+     */
+    public int indiceRang() {
+        int i = 0;
+        for (i = 0 ; i < Meute.rangsPossibles.length() ; ++i) {
+            if (this.getRang() == Meute.rangsPossibles.charAt(i)) {
+                return i;
+            }
+        }
+        return i;
+    }
+
+    /**
+     * Entendre un hurlement d'un lycanthrope et répondre
+     * @param hurlement
+     * @param lycanthrope
+     */
+    public void entendreSon(Hurlement hurlement, Lycanthrope lycanthrope) {
+        if ((this.getFacteurDomination() + this.getForce() + this.getImpetuosite()) > (lycanthrope.getImpetuosite() + lycanthrope.getForce() + lycanthrope.getFacteurDomination())) {
+            System.out.println(this.getNom() + " répond et affirme sa supériorité avec agressivité !");
+            this.setFacteurDomination(this.getFacteurDomination()+1);
+            lycanthrope.setFacteurDomination(lycanthrope.getFacteurDomination()-1);
+        }
+        else {
+            System.out.println(this.getNom() + " se soumet à " + lycanthrope.getNom() + " !");
+            this.setFacteurDomination(this.getFacteurDomination()-1);
+            lycanthrope.setFacteurDomination(this.getFacteurDomination()+1);
+            if (this.indiceRang() < lycanthrope.indiceRang()) {
+                char tempRang = lycanthrope.getRang();
+                lycanthrope.setRang(this.getRang());
+                this.setRang(tempRang);
+            }
         }
     }
 }

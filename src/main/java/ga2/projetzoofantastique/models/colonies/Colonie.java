@@ -33,4 +33,12 @@ public class Colonie {
     public void setMeutes(ArrayList<Meute> meutes) {
         this.meutes = meutes;
     }
+
+    /**
+     * Ajouter une meute à la colonie
+     * @param meute
+     */
+    public void ajouterMeute(Meute meute) {
+        this.meutes.add(meute);
+    }
 }

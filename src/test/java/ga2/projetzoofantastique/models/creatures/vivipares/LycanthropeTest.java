@@ -2,6 +2,7 @@ package ga2.projetzoofantastique.models.creatures.vivipares;
 
 import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
+import ga2.projetzoofantastique.models.colonies.Hurlement;
 import ga2.projetzoofantastique.models.colonies.Meute;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import org.junit.jupiter.api.Test;
@@ -185,4 +186,85 @@ class LycanthropeTest {
         assertEquals(rang, lycanthrope.getRang());
     }
 
+    /**
+     * Test de l'affichage d'un lycanthrope
+     */
+    @Test
+    public void testAfficherCaracteristiques() {
+        //On crée le lycanthrope
+        Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
+        Meute meute = new Meute(enclos);
+        enclos.ajouterCreature(lycanthrope);
+        enclos.getMeute().ajouterLycanthrope(lycanthrope);
+        lycanthrope.setFacteurDomination(0);
+        lycanthrope.setForce(0);
+        lycanthrope.setImpetuosite(0);
+
+        //On crée la string à vérifier
+        String caracteristiques = "Lycanthrope1 :" +
+                "\n Sexe : male" +
+                "\n Âge : 0 ans" +
+                "\n Poids : 20.0 kg" +
+                "\n Taille : 20.0 m" +
+                "\n Faim : rassasié" +
+                "\n Sommeil : réveillé" +
+                "\n Santé : bonne santé" +
+                "\n " +
+                "\n Meute : Enclos1" +
+                "\n " +
+                "\n Force : 0" +
+                "\n Impétuosité : 0" +
+                "\n Domination : 0" +
+                "\n " +
+                "\n Rang : γ";
+
+        //On teste
+        assertEquals(caracteristiques, lycanthrope.afficherCaracteristiques());
+    }
+
+    @Test
+    public void testEmettreSon() {
+        //On crée le zoo
+        ZooFantastique zooFantastique = new ZooFantastique("Zoo1", null, 9);
+        Enclos enclos = new Enclos("Enclos1", 200, 20);
+        Enclos enclos2 = new Enclos("Enclos2", 200, 20);
+
+        zooFantastique.ajouterEnclos(enclos);
+        zooFantastique.ajouterEnclos(enclos2);
+
+        //On crée le lycanthrope
+        Lycanthrope lycanthrope = new Lycanthrope("LycanthropeMid", "male", 20, 20, null);
+        Meute meute = new Meute(enclos);
+        enclos.ajouterCreature(lycanthrope);
+        enclos.getMeute().ajouterLycanthrope(lycanthrope);
+        lycanthrope.setFacteurDomination(5);
+        lycanthrope.setForce(5);
+        lycanthrope.setImpetuosite(5);
+
+        //On crée un soumis
+        Lycanthrope lycanthropeGuez = new Lycanthrope("LycanthropeGuez", "male", 20, 20, null);
+        enclos.ajouterCreature(lycanthropeGuez);
+        enclos.getMeute().ajouterLycanthrope(lycanthropeGuez);
+        lycanthropeGuez.setFacteurDomination(0);
+        lycanthropeGuez.setForce(0);
+        lycanthropeGuez.setImpetuosite(0);
+
+        //On crée un tarpin fort
+        Lycanthrope lycanthropeFort = new Lycanthrope("LycanthropeFort", "male", 20, 20, null);
+        enclos.ajouterCreature(lycanthropeFort);
+        enclos.getMeute().ajouterLycanthrope(lycanthropeFort);
+        lycanthropeFort.setFacteurDomination(10);
+        lycanthropeFort.setForce(10);
+        lycanthropeFort.setImpetuosite(10);
+
+        //On teste la domination
+        lycanthrope.emettreSon(new Hurlement("domination", null));
+
+        //On crée une autre meute
+        Meute meute2 = new Meute(enclos2);
+
+        //On teste l'appartenance
+        lycanthrope.emettreSon(new Hurlement("appartenance", meute));
+    }
 }
