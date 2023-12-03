@@ -224,6 +224,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
      * Devenir humain, revient à la disparition du lycanthrope
      */
     public void devenirHumain() {
+        System.out.println(this.getNom() + " se transforme en humain et part !");
         this.mourrir();
     }
 

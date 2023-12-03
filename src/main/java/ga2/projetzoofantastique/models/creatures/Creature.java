@@ -347,6 +347,7 @@ public class Creature {
      * Faire disparaitre une créature
      */
     public void mourrir() {
+        System.out.println(this.getNom() + " meurt...");
         this.getEnclos().retirerCreature(this);
         this.setEnclos(null);
     }
