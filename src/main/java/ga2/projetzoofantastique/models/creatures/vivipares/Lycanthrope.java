@@ -222,10 +222,13 @@ public class Lycanthrope extends Vivipare implements Terrestre {
 
     /**
      * Devenir humain, revient à la disparition du lycanthrope
+     * Possible uniquement si le lycanthrope ne fait pas partie du couple alpha.
      */
     public void devenirHumain() {
-        System.out.println(this.getNom() + " se transforme en humain et part !");
-        this.mourrir();
+        if (!(this.getMeute().getCoupleAlpha().getLycanthropeMale() == this) || !(this.getMeute().getCoupleAlpha().getLycanthropeFemelle() == this)) {
+            System.out.println(this.getNom() + " se transforme en humain et part !");
+            this.mourrir();
+        }
     }
 
     /**

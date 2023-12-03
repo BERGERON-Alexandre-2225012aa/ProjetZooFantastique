@@ -1,5 +1,6 @@
 package ga2.projetzoofantastique.models.colonies;
 
+import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.creatures.vivipares.Lycanthrope;
 
 import java.util.ArrayList;
@@ -143,4 +144,25 @@ public class Colonie {
             }
         }
     }
+
+    /**
+     * Génère aléatoirement des hurlements à travers les meutes (1 chance sur 12 d'émettre un hurlement de domination et 1 chance sur 12 d'émettre un hurlement d'appartenance)
+     */
+    public void genererHurlements() {
+        Random random = new Random();
+        int randomNombre = 0;
+        for (int i = 0 ; i < this.getMeutes().size() ; ++i) {
+            for (int j = 0 ; j < this.getMeutes().get(i).getLycanthropes().size() ; ++j) {
+                randomNombre = random.nextInt(12);
+                if (randomNombre == 0) {
+                    this.getMeutes().get(i).getLycanthropes().get(j).emettreSon(new Hurlement("domination", this.getMeutes().get(i)));
+                }
+                else if (randomNombre == 1) {
+                    this.getMeutes().get(i).getLycanthropes().get(j).emettreSon(new Hurlement("appartenance", this.getMeutes().get(i)));
+                }
+            }
+        }
+    }
+
+
 }
