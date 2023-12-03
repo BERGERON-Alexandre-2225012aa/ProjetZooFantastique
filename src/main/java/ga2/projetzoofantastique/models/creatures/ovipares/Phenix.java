@@ -89,4 +89,7 @@ public class Phenix extends Ovipare implements Aerien, Immortel {
     public void voler() {
         System.out.println(this.getNom() + " vole");
     }
+    public void emettreSon() {
+        System.out.println(this.getNom() + " crie : AINNNNNNNNNNNNNN! ");
+    }
 }
