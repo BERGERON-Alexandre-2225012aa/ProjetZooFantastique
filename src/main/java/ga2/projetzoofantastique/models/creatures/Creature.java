@@ -351,4 +351,28 @@ public class Creature {
         this.getEnclos().retirerCreature(this);
         this.setEnclos(null);
     }
+
+    /**
+     * Baisse l'indicateur de faim de 1 pour affamer la créature
+     */
+    public void affamer() {
+        if (!(this.getFaim()==2)) {
+            this.setFaim(this.getFaim()+1);
+        }
+        else {
+            this.mourrir();
+        }
+    }
+
+    /**
+     * Baisse l'indicateur de santé de 1 pour rendre la créature plus malade
+     */
+    public void empoisonner() {
+        if (!(this.getSante()==0)) {
+            this.setSante(this.getSante()-1);
+        }
+        else {
+            this.mourrir();
+        }
+    }
 }

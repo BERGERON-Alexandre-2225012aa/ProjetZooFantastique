@@ -118,4 +118,17 @@ public class Voliere extends Enclos {
         super.nettoyer();
         this.setPropreteToit(2);
     }
+
+    @Override
+    public void salir() {
+        if (!(this.getProprete() == 0)) {
+            this.setProprete(this.getProprete()-1);
+            this.setPropreteToit(this.getPropreteToit()-1);
+        }
+        else {
+            for (int i = 0 ; i < this.getNombreDeCreatures(); ++i) {
+                this.getCreatures().get(i).empoisonner();
+            }
+        }
+    }
 }

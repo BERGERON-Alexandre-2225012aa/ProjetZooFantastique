@@ -163,4 +163,31 @@ public class Aquarium extends Enclos {
     public void saliniser() {
         this.setSalinite(2);
     }
+
+    @Override
+    public void salir() {
+        if (!(this.getProprete() == 0)) {
+            this.setProprete(this.getProprete()-1);
+            this.setPropreteFond(this.getPropreteFond()-1);
+        }
+        else {
+            for (int i = 0 ; i < this.getNombreDeCreatures(); ++i) {
+                this.getCreatures().get(i).empoisonner();
+            }
+        }
+    }
+
+    /**
+     * Desalinise de 1 cran et empoisonne si = 0
+     */
+    public void desaliniser() {
+        if (!(this.getSalinite() == 0)) {
+            this.setSalinite(this.getSalinite()-1);
+        }
+        else {
+            for (int i = 0 ; i < this.getNombreDeCreatures(); ++i) {
+                this.getCreatures().get(i).empoisonner();
+            }
+        }
+    }
 }

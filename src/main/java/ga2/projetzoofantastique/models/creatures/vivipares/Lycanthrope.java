@@ -65,7 +65,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
         this.force = random.nextInt(10);
         this.facteurDomination = 0;
         this.rang = 'γ';
-        this.impetuosite = 0;
+        this.impetuosite = random.nextInt(10);
         this.meute = null;
         this.apparenceHumaine = null;
         nombreTotal += 1;

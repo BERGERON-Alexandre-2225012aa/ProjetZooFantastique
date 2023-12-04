@@ -95,11 +95,14 @@ public class Naissance extends Thread {
         else if (creatureParent instanceof Phenix) {
             double poids = Math.round(random.nextDouble(40, 60) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(2, 5) * 100.0) / 100.0;
-            creature = new Phenix("Phenix" + Phenix.getNombreTotal(), sexe, poids, taille, null);
+            creature = new Phenix("Phénix" + Phenix.getNombreTotal(), sexe, poids, taille, null);
         }
 
         if (creatureParent.getEnclos().getNombreDeCreatures() < creatureParent.getEnclos().getCapacite()) {
             creatureParent.getEnclos().ajouterCreature(creature);
+            if (creature instanceof Lycanthrope) {
+                creatureParent.getEnclos().getMeute().ajouterLycanthrope((Lycanthrope) creature);
+            }
         }
         else {
             creature.mourrir();

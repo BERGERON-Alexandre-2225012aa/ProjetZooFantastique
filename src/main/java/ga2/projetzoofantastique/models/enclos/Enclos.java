@@ -302,6 +302,20 @@ public class Enclos {
     }
 
     /**
+     * Salir l'enclos, baisse l'indice de propreté et empoisonne si = 0
+     */
+    public void salir() {
+        if (!(this.getProprete() == 0)) {
+            this.setProprete(this.getProprete()-1);
+        }
+        else {
+            for (int i = 0 ; i < this.getNombreDeCreatures(); ++i) {
+                this.getCreatures().get(i).empoisonner();
+            }
+        }
+    }
+
+    /**
      * Soigner les créatures de l'enclos
      */
     public void soigner() {

@@ -2,6 +2,7 @@ package ga2.projetzoofantastique.models.colonies;
 
 import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.creatures.vivipares.Lycanthrope;
+import ga2.projetzoofantastique.models.threads.LycanthropesSimulation;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -75,14 +76,14 @@ public class Colonie {
     }
 
     /**
-     * Transforme certains lycanthropes de la colonie en humains (1 chance sur 25)
+     * Transforme certains lycanthropes de la colonie en humains (1 chance sur 50)
      */
     public void transformerCertainsLycanthropes() {
         Random random = new Random();
         int randomNombre = 0;
         for (int i = 0 ; i < this.getMeutes().size() ; ++i) {
             for (int j = 0 ; j < this.getMeutes().get(i).getLycanthropes().size() ; ++j) {
-                randomNombre = random.nextInt(25);
+                randomNombre = random.nextInt(50);
                 if (randomNombre == 0) {
                     this.getMeutes().get(i).getLycanthropes().get(j).devenirHumain();
                 }
@@ -164,5 +165,27 @@ public class Colonie {
         }
     }
 
+    /**
+     * Mets tous les lycanthropes de l'enclos dans la meute si celle-ci comporte moins de 2 lycanthropes
+     */
+    public void verifierSiBesoinCreerMeute() {
+        for (int i = 0 ; i < this.getMeutes().size() ; ++i) {
+            if (this.getMeutes().get(i).getLycanthropes().size() < 2) {
+                for (int j = 0 ; j < this.getMeutes().get(i).getLycanthropes().size() ; ++j) {
+                    this.getMeutes().get(i).retirerLycanthrope(this.getMeutes().get(i).getLycanthropes().get(j));
+                }
+                for (int j = 0 ; j < this.getMeutes().get(i).getEnclos().getCreatures().size() ; ++j) {
+                    this.getMeutes().get(i).ajouterLycanthrope((Lycanthrope) this.getMeutes().get(i).getEnclos().getCreatures().get(j));
+                }
+            }
+        }
+    }
 
+    /**
+     * Lance la simulation des lycanthropes
+     */
+    public void lancerSimulationLycanthropes() {
+        LycanthropesSimulation lycanthropesSimulation = new LycanthropesSimulation(this);
+        lycanthropesSimulation.start();
+    }
 }

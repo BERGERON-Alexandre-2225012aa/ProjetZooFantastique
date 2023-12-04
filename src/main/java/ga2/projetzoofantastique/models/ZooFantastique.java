@@ -1,6 +1,7 @@
 package ga2.projetzoofantastique.models;
 
 import ga2.projetzoofantastique.models.colonies.Colonie;
+import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 
 import java.util.ArrayList;
@@ -140,14 +141,14 @@ public class ZooFantastique {
      * Afficher la liste des noms des créatures du zoo fantastique
      * @return
      */
-    public ArrayList<String> afficherCreatures() {
-        ArrayList<String> nomsCreatures = new ArrayList<>();
+    public ArrayList<Creature> afficherCreatures() {
+        ArrayList<Creature> creatures = new ArrayList<>();
         for (int i = 0 ; i < this.getEnclos().size() ; ++i) {
             for (int j = 0 ; j < this.getEnclos().get(i).getNombreDeCreatures() ; ++j) {
-                nomsCreatures.add(this.getEnclos().get(i).getCreatures().get(j).getNom());
+                creatures.add(this.getEnclos().get(i).getCreatures().get(j));
             }
         }
-        return nomsCreatures;
+        return creatures;
     }
 
     /**

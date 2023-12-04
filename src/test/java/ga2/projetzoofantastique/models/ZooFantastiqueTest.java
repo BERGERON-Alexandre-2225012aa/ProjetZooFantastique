@@ -1,6 +1,7 @@
 package ga2.projetzoofantastique.models;
 
 import ga2.projetzoofantastique.models.colonies.Colonie;
+import ga2.projetzoofantastique.models.creatures.Creature;
 import ga2.projetzoofantastique.models.creatures.ovipares.Kraken;
 import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
 import ga2.projetzoofantastique.models.creatures.vivipares.Licorne;
@@ -147,13 +148,13 @@ class ZooFantastiqueTest {
         voliere1.ajouterCreature(phenix);
 
         //Valeur à vérifier
-        ArrayList<String> nomsCreatures = new ArrayList<>();
-        nomsCreatures.add("Licorne 1");
-        nomsCreatures.add("Kraken 1");
-        nomsCreatures.add("Phenix 1");
+        ArrayList<Creature> creatures = new ArrayList<>();
+        creatures.add(licorne);
+        creatures.add(kraken);
+        creatures.add(phenix);
 
         //On teste
-        assertEquals(nomsCreatures, zooFantastique.afficherCreatures());
+        assertEquals(creatures, zooFantastique.afficherCreatures());
     }
 
     /**
