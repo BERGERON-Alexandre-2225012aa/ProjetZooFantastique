@@ -32,8 +32,14 @@ public class Simulation extends Thread {
             this.application.ajouterMois();
             System.out.println("\n\n\n--------------------------------------------------\n");
             System.out.println("Date : " + Application.mois + "/" + Application.annee +"\n");
-            this.application.modifierAleatoirementEnclos();
-            this.application.modifierAleatoirementCreatures();
+            try {
+                this.application.modifierAleatoirementEnclos();
+                this.application.modifierAleatoirementCreatures();
+            }
+            catch (NullPointerException e) {
+                System.out.println(Application.ANSI_RED + "Erreur, vérifier manuellement l'état des créatures." + Application.ANSI_RESET);
+            }
+
         }
     }
 }

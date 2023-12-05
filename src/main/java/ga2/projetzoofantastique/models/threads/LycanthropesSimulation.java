@@ -1,6 +1,7 @@
 package ga2.projetzoofantastique.models.threads;
 
 import ga2.projetzoofantastique.models.colonies.Colonie;
+import ga2.projetzoofantastique.view_models.Application;
 
 /**
  * Thread de simulation des lycanthropes
@@ -28,12 +29,17 @@ public class LycanthropesSimulation extends Thread {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
-            colonie.faireQuitterCertainsLycanthropesOmega();
-            colonie.verifierSiBesoinCreerMeute();
-            colonie.faireEvoluerHierarchies();
-            colonie.transformerCertainsLycanthropes();
-            colonie.genererHurlements();
-            colonie.verifierSiSaisonAmour();
+            try {
+                colonie.faireQuitterCertainsLycanthropesOmega();
+                colonie.verifierSiBesoinCreerMeute();
+                colonie.faireEvoluerHierarchies();
+                colonie.transformerCertainsLycanthropes();
+                colonie.genererHurlements();
+                colonie.verifierSiSaisonAmour();
+            }
+            catch (NullPointerException e) {
+                System.out.println(Application.ANSI_RED + "Erreur, vérifier manuellement l'état des créatures." + Application.ANSI_RESET);
+            }
         }
     }
 }
