@@ -14,6 +14,7 @@ import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.enclos.Voliere;
 import ga2.projetzoofantastique.models.threads.Simulation;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,6 +22,16 @@ import java.util.Scanner;
  * L'application du zoo
  */
 public class Application {
+    //COULEUR POUR LES SYSTEM OUT
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     /**
      * L'année du zoo
      */
@@ -280,16 +291,91 @@ public class Application {
         //On crée le Scanner
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Accéder à un enclos : \n");
+        System.out.println(ANSI_CYAN + "\n\nAccéder à un enclos : \n" + ANSI_RESET);
         for (int i = 0 ; i < this.zooFantastique.getEnclos().size() ; ++i) {
-            System.out.println("[" + i + "]\t\t" + this.zooFantastique.afficherEnclos().get(i));
+            System.out.println(ANSI_YELLOW + "[" + i + "]\t\t" + this.zooFantastique.afficherEnclos().get(i) + ANSI_RESET);
         }
 
         System.out.println();
 
         //On lit l'input de l'enclos choisi
-        System.out.print("Enclos : ");
-        int indiceEnclos = input.nextInt();
+        int indiceEnclos = 0;
+        int action = 0;
+        System.out.print(ANSI_CYAN + "Enclos : " + ANSI_RESET);
+        try {
+            indiceEnclos = input.nextInt();
+            //On affiche l'enclos choisit
+            System.out.println(ANSI_PURPLE + "\n\n" + zooFantastique.getEnclos().get(indiceEnclos).afficherCaracteristiques() + ANSI_RESET);
+            if (zooFantastique.getEnclos().get(indiceEnclos) instanceof Aquarium) {
+                System.out.println(ANSI_BLUE + "\n\nActions à réaliser dans cet enclos : \n"+ ANSI_GREEN +
+                        "\n[0]\tNettoyer enclos" +
+                        "\n[1]\tNourrir créatures" +
+                        "\n[2]\tSoigner créatures" +
+                        "\n[3]\tSaliniser l'eau\n" + ANSI_RESET);
+                try {
+                    System.out.print(ANSI_BLUE + "Action : " + ANSI_RESET);
+                    action = input.nextInt();
+                    if (action == 0) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).nettoyer();
+                        System.out.println(ANSI_PURPLE+ "\nLes créatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " quittent l'enclos temporairement." + ANSI_RESET );
+                        System.out.println(ANSI_PURPLE + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " nettoyé avec succès." + ANSI_RESET);
+                        System.out.println(ANSI_PURPLE + "Les créatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " reviennent dans leur enclos." + ANSI_RESET);
+                    }
+                    else if (action == 1) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).nourrirCreatures();
+                        System.out.println(ANSI_PURPLE + "\nCréatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " nourries avec succès." + ANSI_RESET);
+                    }
+                    else if (action == 2) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).soigner();
+                        System.out.println(ANSI_PURPLE + "\nCréatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " soignées avec succès." + ANSI_RESET);
+                    }
+                    else if (action == 3) {
+                        ((Aquarium) this.zooFantastique.getEnclos().get(indiceEnclos)).saliniser();
+                        System.out.println(ANSI_PURPLE + "\nEau de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " salinisée avec succès." + ANSI_RESET);
+                    }
+                    else {
+                        throw new IndexOutOfBoundsException();
+                    }
+
+                } catch (InputMismatchException | IndexOutOfBoundsException e) {
+                    System.out.println(ANSI_RED + "\nVeuillez saisir un numéro correspondant à une action." + ANSI_RESET);
+                }
+            }
+            else {
+                System.out.println(ANSI_BLUE + "\n\nActions à réaliser dans cet enclos : \n"+ ANSI_GREEN +
+                        "\n[0]\tNettoyer enclos" +
+                        "\n[1]\tNourrir créatures" +
+                        "\n[2]\tSoigner créatures\n" + ANSI_RESET);
+                try {
+                    System.out.print(ANSI_BLUE + "Action : " + ANSI_RESET);
+                    action = input.nextInt();
+                    if (action == 0) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).nettoyer();
+                        System.out.println(ANSI_PURPLE+ "\nLes créatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " quittent l'enclos temporairement." + ANSI_RESET );
+                        System.out.println(ANSI_PURPLE + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " nettoyé avec succès." + ANSI_RESET);
+                        System.out.println(ANSI_PURPLE + "Les créatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " reviennent dans leur enclos." + ANSI_RESET);
+                    }
+                    else if (action == 1) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).nourrirCreatures();
+                        System.out.println(ANSI_PURPLE + "\nCréatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " nourries avec succès." + ANSI_RESET);
+                    }
+                    else if (action == 2) {
+                        this.zooFantastique.getEnclos().get(indiceEnclos).soigner();
+                        System.out.println(ANSI_PURPLE + "\nCréatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " soignées avec succès." + ANSI_RESET);
+                    }
+                    else {
+                        throw new IndexOutOfBoundsException();
+                    }
+
+                } catch (InputMismatchException | IndexOutOfBoundsException e) {
+                    System.out.println(ANSI_RED + "\nVeuillez saisir un numéro correspondant à une action." + ANSI_RESET);
+                }
+            }
+        }
+        catch (InputMismatchException | IndexOutOfBoundsException e) {
+            System.out.println(ANSI_RED + "\nVeuillez saisir un numéro d'enclos existant." + ANSI_RESET);
+        }
+
 
     }
 

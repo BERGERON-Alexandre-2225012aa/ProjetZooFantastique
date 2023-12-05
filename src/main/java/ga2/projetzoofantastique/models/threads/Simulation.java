@@ -30,7 +30,8 @@ public class Simulation extends Thread {
                 throw new RuntimeException(e);
             }
             this.application.ajouterMois();
-            System.out.println("\n\nDate : " + Application.mois + "/" + Application.annee +"\n");
+            System.out.println("\n\n\n--------------------------------------------------\n");
+            System.out.println("Date : " + Application.mois + "/" + Application.annee +"\n");
             this.application.modifierAleatoirementEnclos();
             this.application.modifierAleatoirementCreatures();
         }

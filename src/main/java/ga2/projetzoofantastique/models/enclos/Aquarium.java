@@ -141,7 +141,7 @@ public class Aquarium extends Enclos {
                 "\n " +
                 "\n Salinité : " + this.etatSalinite() +
                 "\n " +
-                "\n Nombre de créatures affamés : " + this.compterCreaturesAffamees() +
+                "\n Nombre de créatures affamées : " + this.compterCreaturesAffamees() +
                 "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees() +
                 "\n " +
                 "\n Nombre de créatures malades : " + compterCreaturesMalades() +

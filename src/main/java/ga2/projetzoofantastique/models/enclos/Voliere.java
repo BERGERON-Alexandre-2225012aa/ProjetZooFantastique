@@ -103,7 +103,7 @@ public class Voliere extends Enclos {
                 "\n Propreté : " + this.etatProprete() +
                 "\n Propreté du toit : " + this.etatPropreteToit() +
                 "\n " +
-                "\n Nombre de créatures affamés : " + this.compterCreaturesAffamees() +
+                "\n Nombre de créatures affamées : " + this.compterCreaturesAffamees() +
                 "\n Nombre de créatures très affamées : " + this.compterCreaturesTresAffamees() +
                 "\n " +
                 "\n Nombre de créatures malades : " + compterCreaturesMalades() +
