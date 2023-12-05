@@ -4,20 +4,18 @@ import ga2.projetzoofantastique.models.Maitre;
 import ga2.projetzoofantastique.models.ZooFantastique;
 import ga2.projetzoofantastique.models.colonies.Meute;
 import ga2.projetzoofantastique.models.creatures.Creature;
-import ga2.projetzoofantastique.models.creatures.ovipares.Dragon;
-import ga2.projetzoofantastique.models.creatures.ovipares.Kraken;
-import ga2.projetzoofantastique.models.creatures.ovipares.Megalodon;
-import ga2.projetzoofantastique.models.creatures.ovipares.Phenix;
-import ga2.projetzoofantastique.models.creatures.vivipares.Licorne;
-import ga2.projetzoofantastique.models.creatures.vivipares.Lycanthrope;
-import ga2.projetzoofantastique.models.creatures.vivipares.Nymphe;
-import ga2.projetzoofantastique.models.creatures.vivipares.Sirene;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aerien;
+import ga2.projetzoofantastique.models.creatures.interfaces.Aquatique;
+import ga2.projetzoofantastique.models.creatures.interfaces.Terrestre;
+import ga2.projetzoofantastique.models.creatures.ovipares.*;
+import ga2.projetzoofantastique.models.creatures.vivipares.*;
 import ga2.projetzoofantastique.models.enclos.Aquarium;
 import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.enclos.Voliere;
 import ga2.projetzoofantastique.models.threads.Simulation;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * L'application du zoo
@@ -42,7 +40,7 @@ public class Application {
     public Application() {
         this.annee = 0;
         this.mois = 0;
-        this.zooFantastique = new ZooFantastique("Zoo Fantastique", new Maitre("Maître", "male"), 9);
+        this.zooFantastique = new ZooFantastique("Zoo Fantastique", new Maitre("Maître", "male"), 10);
 
         //On crée les éléments de base du zoo
 
@@ -57,7 +55,6 @@ public class Application {
         meuteLycanthropes1.ajouterLycanthrope(lycanthrope1);
         meuteLycanthropes1.ajouterLycanthrope(lycanthrope2);
         meuteLycanthropes1.constituerCoupleAlpha();
-        this.zooFantastique.getColonie().ajouterMeute(meuteLycanthropes1);
 
 
         Enclos enclosLycanthropes2 = new Enclos("Enclos de Lycanthropes 2", 200, 20);
@@ -70,7 +67,6 @@ public class Application {
         meuteLycanthropes2.ajouterLycanthrope(lycanthrope3);
         meuteLycanthropes2.ajouterLycanthrope(lycanthrope4);
         meuteLycanthropes2.constituerCoupleAlpha();
-        this.zooFantastique.getColonie().ajouterMeute(meuteLycanthropes2);
 
 
         Enclos enclosLycanthropes3 = new Enclos("Enclos de Lycanthropes 3", 200, 20);
@@ -83,7 +79,6 @@ public class Application {
         meuteLycanthropes3.ajouterLycanthrope(lycanthrope5);
         meuteLycanthropes3.ajouterLycanthrope(lycanthrope6);
         meuteLycanthropes3.constituerCoupleAlpha();
-        this.zooFantastique.getColonie().ajouterMeute(meuteLycanthropes3);
 
 
         //Licornes
@@ -121,6 +116,13 @@ public class Application {
         voliereDragons.ajouterCreature(dragon1);
         voliereDragons.ajouterCreature(dragon2);
 
+        //Phénix
+        Voliere volierePhenix = new Voliere("Volière de Phénix", 200, 20, 20);
+        zooFantastique.ajouterEnclos(volierePhenix);
+        Phenix phenix1 = new Phenix("Phénix1", "male", 50,4, null);
+        Phenix phenix2 = new Phenix("Phénix2", "femelle", 50,4, null);
+        volierePhenix.ajouterCreature(phenix1);
+        volierePhenix.ajouterCreature(phenix2);
 
         //Krakens
         Aquarium aquariumKrakens = new Aquarium("Aquarium de Krakens", 200, 20, 20);
@@ -138,15 +140,6 @@ public class Application {
         Megalodon megalodon2 = new Megalodon("Megalodon2", "femelle", 175, 6, null);
         aquariumKrakens.ajouterCreature(megalodon1);
         aquariumKrakens.ajouterCreature(megalodon2);
-
-
-        //Phénix
-        Voliere volierePhenix = new Voliere("Volière de Phénix", 200, 20, 20);
-        zooFantastique.ajouterEnclos(volierePhenix);
-        Phenix phenix1 = new Phenix("Phénix1", "male", 50,4, null);
-        Phenix phenix2 = new Phenix("Phénix2", "femelle", 50,4, null);
-        volierePhenix.ajouterCreature(phenix1);
-        volierePhenix.ajouterCreature(phenix2);
 
 
     }
@@ -201,7 +194,56 @@ public class Application {
                 creature.empoisonner();
             }
 
+            //COURIR
 
+            if (creature instanceof Terrestre) {
+                nombreRandom = random.nextInt(12);
+                if (nombreRandom == 0) {
+                    ((Terrestre) creature).courir();
+                }
+            }
+
+            //VOLER
+            if (creature instanceof Aerien) {
+                nombreRandom = random.nextInt(12);
+                if (nombreRandom == 0) {
+                    ((Aerien) creature).voler();
+                }
+            }
+
+            //VOLER
+            if (creature instanceof Aquatique) {
+                nombreRandom = random.nextInt(12);
+                if (nombreRandom == 0) {
+                    ((Aquatique) creature).nager();
+                }
+            }
+
+            //CRIER
+            if (!(creature instanceof Lycanthrope)) {
+                nombreRandom = random.nextInt(12);
+                if (nombreRandom == 0) {
+                    creature.emettreSon();
+                }
+            }
+
+            //ENFANTER
+            if (!(creature instanceof Lycanthrope)) {
+                if (creature.getMoisSaisonAmour().contains(mois)) {
+                    if (creature instanceof Ovipare) {
+                        nombreRandom = random.nextInt(20);
+                        if (nombreRandom == 0) {
+                            ((Ovipare) creature).pondre();
+                        }
+                    }
+                    if (creature instanceof Vivipare) {
+                        nombreRandom = random.nextInt(20);
+                        if (nombreRandom == 0) {
+                            ((Vivipare) creature).mettreBas();
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -235,7 +277,20 @@ public class Application {
      * Demande une input du joueur
      */
     public void maitreJoue() {
-        // A FAIRE
+        //On crée le Scanner
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Accéder à un enclos : \n");
+        for (int i = 0 ; i < this.zooFantastique.getEnclos().size() ; ++i) {
+            System.out.println("[" + i + "]\t\t" + this.zooFantastique.afficherEnclos().get(i));
+        }
+
+        System.out.println();
+
+        //On lit l'input de l'enclos choisi
+        System.out.print("Enclos : ");
+        int indiceEnclos = input.nextInt();
+
     }
 
     /**

@@ -196,7 +196,9 @@ public class Meute {
             this.getLycanthropes().get(i).setRang(Meute.rangsPossibles.charAt(randomNombre));
             this.getLycanthropes().get(i).setImpetuosite(random.nextInt(10));
         }
-        constituerCoupleAlpha();
+        if (!(this.getLycanthropes().size() < 2)) {
+            constituerCoupleAlpha();
+        }
     }
 
     /**

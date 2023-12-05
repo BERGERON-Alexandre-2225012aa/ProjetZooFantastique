@@ -83,10 +83,14 @@ public class Colonie {
         int randomNombre = 0;
         for (int i = 0 ; i < this.getMeutes().size() ; ++i) {
             for (int j = 0 ; j < this.getMeutes().get(i).getLycanthropes().size() ; ++j) {
-                randomNombre = random.nextInt(50);
-                if (randomNombre == 0) {
-                    this.getMeutes().get(i).getLycanthropes().get(j).devenirHumain();
+                if (!(this.getMeutes().get(i).getLycanthropes().get(j) == this.getMeutes().get(i).getCoupleAlpha().getLycanthropeMale() ||
+                        this.getMeutes().get(i).getLycanthropes().get(j) == this.getMeutes().get(i).getCoupleAlpha().getLycanthropeFemelle())) {
+                    randomNombre = random.nextInt(50);
+                    if (randomNombre == 0) {
+                        this.getMeutes().get(i).getLycanthropes().get(j).devenirHumain();
+                    }
                 }
+
             }
         }
     }
@@ -137,8 +141,8 @@ public class Colonie {
      * Vérifie si c'est la saison des amours : si c'est le cas, reproduction.
      */
     public void verifierSiSaisonAmour() {
-        for (int i = 0 ; i < this.getMeutes().get(0).getLycanthropes().get(0).getMoisSaisonAmour().size() ; ++i) {
-            if (this.getMeutes().get(0).getLycanthropes().get(0).getMoisSaisonAmour().get(i) == this.mois) {
+        for (int i = 0 ; i < Lycanthrope.moisSaisonAmour.size() ; ++i) {
+            if (Lycanthrope.moisSaisonAmour.get(i) == this.mois) {
                 for (int j = 0 ; j < this.getMeutes().size(); ++j) {
                     this.getMeutes().get(j).lancerReproduction();
                 }

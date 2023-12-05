@@ -25,13 +25,14 @@ public class Simulation extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(30000);
+                Thread.sleep(60000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
             this.application.ajouterMois();
-            this.application.modifierAleatoirementCreatures();
+            System.out.println("\n\nDate : " + Application.mois + "/" + Application.annee +"\n");
             this.application.modifierAleatoirementEnclos();
+            this.application.modifierAleatoirementCreatures();
         }
     }
 }

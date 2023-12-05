@@ -80,6 +80,7 @@ public class Sirene extends Vivipare implements Aquatique {
     public void nager() {
         System.out.println(this.getNom() + " nage");
     }
+    @Override
     public void emettreSon() {
         System.out.println(this.getNom() + " crie : LAAAAAAALAAAAAALAAAA! ");
     }

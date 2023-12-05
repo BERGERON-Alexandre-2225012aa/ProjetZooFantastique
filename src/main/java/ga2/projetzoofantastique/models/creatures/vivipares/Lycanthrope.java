@@ -43,6 +43,7 @@ public class Lycanthrope extends Vivipare implements Terrestre {
      * Si le lycanthrope s'est transformé en humain, son apparence humaine
      */
     private Maitre apparenceHumaine;
+    public static ArrayList<Integer> moisSaisonAmour;
 
     /**
      * Constructeur de la classe Lycanthrope
@@ -55,10 +56,10 @@ public class Lycanthrope extends Vivipare implements Terrestre {
     public Lycanthrope(String nom, String sexe, double poids, double taille, Enclos enclos) {
         super(nom, sexe, poids, taille, enclos);
         Random random = new Random();
-        this.moisSaisonAmour = new ArrayList<>();
-        this.moisSaisonAmour.add(4);
-        this.moisSaisonAmour.add(5);
-        this.moisSaisonAmour.add(6);
+        moisSaisonAmour = new ArrayList<>();
+        moisSaisonAmour.add(4);
+        moisSaisonAmour.add(5);
+        moisSaisonAmour.add(6);
         this.porteeMinimum = 1;
         this.porteeMaximum = 7;
         this.tempsAvantNaissance = 9;
@@ -281,9 +282,11 @@ public class Lycanthrope extends Vivipare implements Terrestre {
         else {
             ArrayList<Lycanthrope> lycanthropesSaufThis = this.listeLycanthropeMeuteSaufThis();
             Random random = new Random();
-            int randomInt = random.nextInt(lycanthropesSaufThis.size());
-            System.out.println(this.getNom() + " exprime sa domination envers " + lycanthropesSaufThis.get(randomInt).getNom() + " !");
-            lycanthropesSaufThis.get(randomInt).entendreSon(hurlement, this);
+            if (!(lycanthropesSaufThis.size() <1)) {
+                int randomInt = random.nextInt(lycanthropesSaufThis.size());
+                System.out.println(this.getNom() + " exprime sa domination envers " + lycanthropesSaufThis.get(randomInt).getNom() + " !");
+                lycanthropesSaufThis.get(randomInt).entendreSon(hurlement, this);
+            }
         }
     }
 

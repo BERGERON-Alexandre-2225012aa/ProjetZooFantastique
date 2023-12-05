@@ -24,7 +24,7 @@ public class LycanthropesSimulation extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(30000);
+                Thread.sleep(60000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }

@@ -81,6 +81,7 @@ public class Licorne extends Vivipare implements Terrestre {
             this.mourrir();
         }
     }
+    @Override
     public void emettreSon() {
         System.out.println(this.getNom() + " crie : UHHHHHHHHUHUHUHUUHUHH! ");
     }

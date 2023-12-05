@@ -105,6 +105,7 @@ public class Dragon extends Ovipare implements Aquatique, Aerien, Terrestre, Imm
             this.renaitre();
         }
     }
+    @Override
     public void emettreSon() {
         System.out.println(this.getNom() + " crie : RRRRRRRRRRRRRRRRRRRRRR!");
     }

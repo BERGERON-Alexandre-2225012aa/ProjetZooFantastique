@@ -78,6 +78,7 @@ public class Kraken extends Ovipare implements Aquatique {
             this.mourrir();
         }
     }
+    @Override
     public void emettreSon() {
         System.out.println(this.getNom() + " crie : Glouglouglou! ");
     }

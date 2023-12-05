@@ -83,6 +83,7 @@ public class Nymphe extends Vivipare implements Immortel {
         System.out.println(this.getNom() + " renaît");
         this.setAge(0);
     }
+    @Override
     public void emettreSon() {
         System.out.println(this.getNom() + " crie : HMMMMMMMMMMMMMM! ");
     }

@@ -347,9 +347,11 @@ public class Creature {
      * Faire disparaitre une créature
      */
     public void mourrir() {
-        System.out.println(this.getNom() + " meurt...");
-        this.getEnclos().retirerCreature(this);
-        this.setEnclos(null);
+        if (!(this.getEnclos() == null)) {
+            System.out.println(this.getNom() + " meurt...");
+            this.getEnclos().retirerCreature(this);
+            this.setEnclos(null);
+        }
     }
 
     /**
@@ -374,5 +376,12 @@ public class Creature {
         else {
             this.mourrir();
         }
+    }
+
+    /**
+     * Emettre un son
+     */
+    public void emettreSon() {
+
     }
 }
