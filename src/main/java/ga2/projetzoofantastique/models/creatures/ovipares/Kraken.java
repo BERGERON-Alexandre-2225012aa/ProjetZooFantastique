@@ -50,7 +50,7 @@ public class Kraken extends Ovipare implements Aquatique {
     public void pondre() {
         if (this.getSexe() == "femelle") {
             Random random = new Random();
-            int nombrePetits = random.nextInt(this.getPorteeMinimum(), this.getPorteeMaximum());
+            int nombrePetits = random.nextInt(this.getPorteeMaximum());
 
             for (int i = 0 ; i < nombrePetits ; ++i) {
                 Naissance naissance = new Naissance(this.getTempsAvantNaissance(), this);
