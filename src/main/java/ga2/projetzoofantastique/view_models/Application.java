@@ -14,6 +14,7 @@ import ga2.projetzoofantastique.models.enclos.Enclos;
 import ga2.projetzoofantastique.models.enclos.Voliere;
 import ga2.projetzoofantastique.models.threads.Simulation;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
@@ -149,8 +150,8 @@ public class Application {
         zooFantastique.ajouterEnclos(aquariumMegalodons);
         Megalodon megalodon1 = new Megalodon("Megalodon1", "male", 175, 6, null);
         Megalodon megalodon2 = new Megalodon("Megalodon2", "femelle", 175, 6, null);
-        aquariumKrakens.ajouterCreature(megalodon1);
-        aquariumKrakens.ajouterCreature(megalodon2);
+        aquariumMegalodons.ajouterCreature(megalodon1);
+        aquariumMegalodons.ajouterCreature(megalodon2);
 
 
     }
@@ -184,73 +185,94 @@ public class Application {
 
             // SOMMEIL
 
-            nombreRandom = random.nextInt(2);
-            if (creature.isSommeil() && nombreRandom == 0) {
-                creature.seReveiller();
-            } else if (!creature.isSommeil() && nombreRandom == 0) {
-                creature.dormir();
+            if (!(creature.getEnclos() == null)) {
+                nombreRandom = random.nextInt(2);
+                if (creature.isSommeil() && nombreRandom == 0) {
+                    creature.seReveiller();
+                } else if (!creature.isSommeil() && nombreRandom == 0) {
+                    creature.dormir();
+                }
             }
 
             //FAIM
-
-            nombreRandom = random.nextInt(3);
-            if (nombreRandom == 0) {
-                creature.affamer();
+            if (!(creature.getEnclos() == null)) {
+                nombreRandom = random.nextInt(10);
+                if (nombreRandom == 0) {
+                    creature.affamer();
+                    System.out.println(creature.getNom() + " (" + creature.getEnclos().getNom() + ") a plus faim qu'avant.");
+                }
             }
+
 
             //SANTE
-
-            nombreRandom = random.nextInt(10);
-            if (nombreRandom == 0) {
-                creature.empoisonner();
+            if (!(creature.getEnclos() == null)) {
+                nombreRandom = random.nextInt(20);
+                if (nombreRandom == 0) {
+                    creature.empoisonner();
+                    System.out.println(creature.getNom() + " (" + creature.getEnclos().getNom() + ") est plus malade qu'avant.");
+                }
             }
+
 
             //COURIR
-
-            if (creature instanceof Terrestre) {
-                nombreRandom = random.nextInt(12);
-                if (nombreRandom == 0) {
-                    ((Terrestre) creature).courir();
+            if (!(creature.getEnclos() == null)) {
+                if (creature instanceof Terrestre) {
+                    nombreRandom = random.nextInt(12);
+                    if (nombreRandom == 0) {
+                        ((Terrestre) creature).courir();
+                    }
                 }
             }
 
-            //VOLER
-            if (creature instanceof Aerien) {
-                nombreRandom = random.nextInt(12);
-                if (nombreRandom == 0) {
-                    ((Aerien) creature).voler();
-                }
-            }
 
             //VOLER
-            if (creature instanceof Aquatique) {
-                nombreRandom = random.nextInt(12);
-                if (nombreRandom == 0) {
-                    ((Aquatique) creature).nager();
+            if (!(creature.getEnclos() == null)) {
+                if (creature instanceof Aerien) {
+                    nombreRandom = random.nextInt(12);
+                    if (nombreRandom == 0) {
+                        ((Aerien) creature).voler();
+                    }
                 }
             }
+
+
+            //NAGER
+            if (!(creature.getEnclos() == null)) {
+                if (creature instanceof Aquatique) {
+                    nombreRandom = random.nextInt(12);
+                    if (nombreRandom == 0) {
+                        ((Aquatique) creature).nager();
+                    }
+                }
+            }
+
 
             //CRIER
-            if (!(creature instanceof Lycanthrope)) {
-                nombreRandom = random.nextInt(12);
-                if (nombreRandom == 0) {
-                    creature.emettreSon();
+            if (!(creature.getEnclos() == null)) {
+                if (!(creature instanceof Lycanthrope)) {
+                    nombreRandom = random.nextInt(12);
+                    if (nombreRandom == 0) {
+                        creature.emettreSon();
+                    }
                 }
             }
 
+
             //ENFANTER
-            if (!(creature instanceof Lycanthrope)) {
-                if (creature.getMoisSaisonAmour().contains(mois)) {
-                    if (creature instanceof Ovipare) {
-                        nombreRandom = random.nextInt(20);
-                        if (nombreRandom == 0) {
-                            ((Ovipare) creature).pondre();
+            if (!(creature.getEnclos() == null)) {
+                if (!(creature instanceof Lycanthrope)) {
+                    if (creature.getMoisSaisonAmour().contains(mois)) {
+                        if (creature instanceof Ovipare) {
+                            nombreRandom = random.nextInt(20);
+                            if (nombreRandom == 0) {
+                                ((Ovipare) creature).pondre();
+                            }
                         }
-                    }
-                    if (creature instanceof Vivipare) {
-                        nombreRandom = random.nextInt(20);
-                        if (nombreRandom == 0) {
-                            ((Vivipare) creature).mettreBas();
+                        if (creature instanceof Vivipare) {
+                            nombreRandom = random.nextInt(20);
+                            if (nombreRandom == 0) {
+                                ((Vivipare) creature).mettreBas();
+                            }
                         }
                     }
                 }
@@ -269,9 +291,10 @@ public class Application {
             enclos = this.zooFantastique.getEnclos().get(i);
 
             //PROPRETE
-            nombreRandom = random.nextInt(5);
+            nombreRandom = random.nextInt(10);
             if (nombreRandom==0) {
                 enclos.salir();
+                System.out.println(this.zooFantastique.getEnclos().get(i).getNom() + " est plus sale qu'avant.");
             }
 
             //SALINITE
@@ -279,13 +302,14 @@ public class Application {
                 nombreRandom = random.nextInt(10);
                 if (nombreRandom==0) {
                     ((Aquarium) enclos).desaliniser();
+                    System.out.println(this.zooFantastique.getEnclos().get(i).getNom() + " se désalinise.");
                 }
             }
         }
     }
 
     /**
-     * Demande une input du joueur
+     * Demande les input du joueur
      */
     public void maitreJoue() {
         //On crée le Scanner
@@ -301,6 +325,7 @@ public class Application {
         //On lit l'input de l'enclos choisi
         int indiceEnclos = 0;
         int action = 0;
+        int choixCreature = 0;
         System.out.print(ANSI_CYAN + "Enclos : " + ANSI_RESET);
         try {
             indiceEnclos = input.nextInt();
@@ -311,7 +336,8 @@ public class Application {
                         "\n[0]\tNettoyer enclos" +
                         "\n[1]\tNourrir créatures" +
                         "\n[2]\tSoigner créatures" +
-                        "\n[3]\tSaliniser l'eau\n" + ANSI_RESET);
+                        "\n[3]\tSaliniser l'eau" +
+                        "\n[4]\tAfficher la liste des créatures\n" + ANSI_RESET);
                 try {
                     System.out.print(ANSI_BLUE + "Action : " + ANSI_RESET);
                     action = input.nextInt();
@@ -333,6 +359,20 @@ public class Application {
                         ((Aquarium) this.zooFantastique.getEnclos().get(indiceEnclos)).saliniser();
                         System.out.println(ANSI_PURPLE + "\nEau de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " salinisée avec succès." + ANSI_RESET);
                     }
+                    else if (action == 4) {
+                        System.out.println(ANSI_CYAN + "\n\nAfficher les caractéristiques d'une créature : \n" + ANSI_RESET);
+                        for (int i = 0 ; i < zooFantastique.getEnclos().get(indiceEnclos).getCreatures().size() ; ++i) {
+                            System.out.println(ANSI_YELLOW + "[" + i + "]\t\t" + zooFantastique.getEnclos().get(indiceEnclos).getCreatures().get(i).getNom() + ANSI_RESET);
+                        }
+                        try {
+                            System.out.print(ANSI_CYAN + "\nChoix : " + ANSI_RESET);
+                            choixCreature = input.nextInt();
+                            System.out.println(ANSI_PURPLE + "\n\n" + zooFantastique.getEnclos().get(indiceEnclos).getCreatures().get(choixCreature).afficherCaracteristiques() + ANSI_RESET);
+                        }
+                        catch (InputMismatchException | IndexOutOfBoundsException e) {
+                            System.out.println(ANSI_RED + "\nVeuillez saisir un numéro correspondant à une action." + ANSI_RESET);
+                        }
+                    }
                     else {
                         throw new IndexOutOfBoundsException();
                     }
@@ -345,7 +385,8 @@ public class Application {
                 System.out.println(ANSI_BLUE + "\n\nActions à réaliser dans cet enclos : \n"+ ANSI_GREEN +
                         "\n[0]\tNettoyer enclos" +
                         "\n[1]\tNourrir créatures" +
-                        "\n[2]\tSoigner créatures\n" + ANSI_RESET);
+                        "\n[2]\tSoigner créatures" +
+                        "\n[3]\tAfficher la liste des créatures\n" + ANSI_RESET);
                 try {
                     System.out.print(ANSI_BLUE + "Action : " + ANSI_RESET);
                     action = input.nextInt();
@@ -362,6 +403,20 @@ public class Application {
                     else if (action == 2) {
                         this.zooFantastique.getEnclos().get(indiceEnclos).soigner();
                         System.out.println(ANSI_PURPLE + "\nCréatures de " + zooFantastique.getEnclos().get(indiceEnclos).getNom() + " soignées avec succès." + ANSI_RESET);
+                    }
+                    else if (action == 3) {
+                        System.out.println(ANSI_CYAN + "\n\nAfficher les caractéristiques d'une créature : \n" + ANSI_RESET);
+                        for (int i = 0 ; i < zooFantastique.getEnclos().get(indiceEnclos).getCreatures().size() ; ++i) {
+                            System.out.println(ANSI_YELLOW + "[" + i + "]\t\t" + zooFantastique.getEnclos().get(indiceEnclos).getCreatures().get(i).getNom() + ANSI_RESET);
+                        }
+                        try {
+                            System.out.print(ANSI_CYAN + "\nChoix : " + ANSI_RESET);
+                            choixCreature = input.nextInt();
+                            System.out.println(ANSI_PURPLE + "\n\n" + zooFantastique.getEnclos().get(indiceEnclos).getCreatures().get(choixCreature).afficherCaracteristiques() + ANSI_RESET);
+                        }
+                        catch (InputMismatchException | IndexOutOfBoundsException e) {
+                            System.out.println(ANSI_RED + "\nVeuillez saisir un numéro correspondant à une action." + ANSI_RESET);
+                        }
                     }
                     else {
                         throw new IndexOutOfBoundsException();

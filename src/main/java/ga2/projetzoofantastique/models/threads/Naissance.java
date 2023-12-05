@@ -106,6 +106,7 @@ public class Naissance extends Thread {
             if (creature instanceof Lycanthrope) {
                 creatureParent.getEnclos().getMeute().ajouterLycanthrope((Lycanthrope) creature);
             }
+            System.out.println(creature.getNom() + "est né dans " + creature.getEnclos().getNom() + " !");
         }
         else {
             creature.mourrir();
