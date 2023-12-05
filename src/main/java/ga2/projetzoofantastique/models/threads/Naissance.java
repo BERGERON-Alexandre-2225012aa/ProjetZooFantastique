@@ -9,6 +9,7 @@ import ga2.projetzoofantastique.models.creatures.vivipares.Licorne;
 import ga2.projetzoofantastique.models.creatures.vivipares.Lycanthrope;
 import ga2.projetzoofantastique.models.creatures.vivipares.Nymphe;
 import ga2.projetzoofantastique.models.creatures.vivipares.Sirene;
+import ga2.projetzoofantastique.view_models.Application;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -40,7 +41,7 @@ public class Naissance extends Thread {
     @Override
     public void run() {
         try {
-            Thread.sleep(30000 *tempsAvantNaissance);
+            Thread.sleep(60000 *tempsAvantNaissance);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -106,7 +107,7 @@ public class Naissance extends Thread {
             if (creature instanceof Lycanthrope) {
                 creatureParent.getEnclos().getMeute().ajouterLycanthrope((Lycanthrope) creature);
             }
-            System.out.println(creature.getNom() + "est né dans " + creature.getEnclos().getNom() + " !");
+            System.out.println(Application.ANSI_GREEN + creature.getNom() + " est né dans " + creature.getEnclos().getNom() + " !" + Application.ANSI_RESET);
         }
         else {
             creature.mourrir();
