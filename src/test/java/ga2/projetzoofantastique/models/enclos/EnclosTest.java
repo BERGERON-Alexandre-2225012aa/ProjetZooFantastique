@@ -193,7 +193,7 @@ class EnclosTest {
                 "\n " +
                 "\n Propreté : propre" +
                 "\n " +
-                "\n Nombre de créatures affamés : 0"+
+                "\n Nombre de créatures affamées : 0"+
                 "\n Nombre de créatures très affamées : 0" +
                 "\n " +
                 "\n Nombre de créatures malades : 0" +
