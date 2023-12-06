@@ -61,42 +61,42 @@ public class Naissance extends Thread {
         if (creatureParent instanceof Licorne) {
             double poids = Math.round(random.nextDouble(50, 100) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(1, 2) * 100.0) / 100.0;
-            creature = new Licorne("Licorne" + Licorne.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Licorne("Licorne" + (Licorne.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Lycanthrope) {
             double poids = Math.round(random.nextDouble(50, 100) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(1, 2) * 100.0) / 100.0;
-            creature = new Lycanthrope("Lycanthrope" + Lycanthrope.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Lycanthrope("Lycanthrope" + (Lycanthrope.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Nymphe) {
             double poids = Math.round(random.nextDouble(30, 50) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(0.50, 1.50) * 100.0) / 100.0;
-            creature = new Nymphe("Nymphe" + Nymphe.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Nymphe("Nymphe" + (Nymphe.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Sirene) {
             double poids = Math.round(random.nextDouble(50, 80) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(0.50, 1.50) * 100.0) / 100.0;
-            creature = new Sirene("Sirène" + Sirene.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Sirene("Sirène" + (Sirene.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Dragon) {
             double poids = Math.round(random.nextDouble(100, 400) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(3, 9) * 100.0) / 100.0;
-            creature = new Dragon("Dragon" + Dragon.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Dragon("Dragon" + (Dragon.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Kraken) {
             double poids = Math.round(random.nextDouble(150, 300) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(5, 15) * 100.0) / 100.0;
-            creature = new Kraken("Kraken" + Kraken.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Kraken("Kraken" + (Kraken.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Megalodon) {
             double poids = Math.round(random.nextDouble(150, 200) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(5, 7) * 100.0) / 100.0;
-            creature = new Megalodon("Megalodon" + Megalodon.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Megalodon("Megalodon" + (Megalodon.getNombreTotal()+1), sexe, poids, taille, null);
         }
         else if (creatureParent instanceof Phenix) {
             double poids = Math.round(random.nextDouble(40, 60) * 100.0) / 100.0;
             double taille = Math.round(random.nextDouble(2, 5) * 100.0) / 100.0;
-            creature = new Phenix("Phénix" + Phenix.getNombreTotal()+1, sexe, poids, taille, null);
+            creature = new Phenix("Phénix" + (Phenix.getNombreTotal()+1), sexe, poids, taille, null);
         }
 
         if (creatureParent.getEnclos() == null) {
