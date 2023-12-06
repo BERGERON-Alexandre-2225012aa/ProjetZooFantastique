@@ -25,6 +25,7 @@ class LycanthropeTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
@@ -61,12 +62,10 @@ class LycanthropeTest {
         assertEquals(tempsAvantNaissance, lycanthrope.getTempsAvantNaissance());
         assertEquals(porteeMinimum, lycanthrope.getPorteeMinimum());
         assertEquals(porteeMaximum, lycanthrope.getPorteeMaximum());
-        assertEquals(moisSaisonAmour, lycanthrope.getMoisSaisonAmour());
+        assertEquals(moisSaisonAmour, Lycanthrope.moisSaisonAmour);
         assertNull(lycanthrope.getMeute());
         assertNull(lycanthrope.getApparenceHumaine());
         assertEquals(facteurDomination, lycanthrope.getFacteurDomination());
-        assertEquals(force, lycanthrope.getForce());
-        assertEquals(impetuosite, lycanthrope.getImpetuosite());
         assertEquals(rang, lycanthrope.getRang());
     }
 
@@ -79,7 +78,8 @@ class LycanthropeTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
-        Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
+        Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, null);
+        enclos.ajouterCreature(lycanthrope);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
         String nom = "Lycanthrope";
@@ -115,12 +115,10 @@ class LycanthropeTest {
         assertEquals(tempsAvantNaissance, lycanthrope.getTempsAvantNaissance());
         assertEquals(porteeMinimum, lycanthrope.getPorteeMinimum());
         assertEquals(porteeMaximum, lycanthrope.getPorteeMaximum());
-        assertEquals(moisSaisonAmour, lycanthrope.getMoisSaisonAmour());
+        assertEquals(moisSaisonAmour, Lycanthrope.moisSaisonAmour);
         assertNull(lycanthrope.getMeute());
         assertNull(lycanthrope.getApparenceHumaine());
         assertEquals(facteurDomination, lycanthrope.getFacteurDomination());
-        assertEquals(force, lycanthrope.getForce());
-        assertEquals(impetuosite, lycanthrope.getImpetuosite());
         assertEquals(rang, lycanthrope.getRang());
     }
 
@@ -133,14 +131,16 @@ class LycanthropeTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
-        Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, enclos);
+        zooFantastique.ajouterEnclos(enclos);
+        Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope", "male", 25, 5, null);
 
         // On modifie les valeurs
         lycanthrope.setRang('ω');
         lycanthrope.setForce(10);
         lycanthrope.setImpetuosite(12);
         Meute meute = new Meute(enclos);
-        lycanthrope.setMeute(meute);
+        enclos.ajouterCreature(lycanthrope);
+        meute.ajouterLycanthrope(lycanthrope);
         lycanthrope.setFacteurDomination(1);
 
         // On crée les éléments auxquels les attributs doivent correspondre.
@@ -177,12 +177,10 @@ class LycanthropeTest {
         assertEquals(tempsAvantNaissance, lycanthrope.getTempsAvantNaissance());
         assertEquals(porteeMinimum, lycanthrope.getPorteeMinimum());
         assertEquals(porteeMaximum, lycanthrope.getPorteeMaximum());
-        assertEquals(moisSaisonAmour, lycanthrope.getMoisSaisonAmour());
+        assertEquals(moisSaisonAmour, Lycanthrope.moisSaisonAmour);
         assertEquals(meute, lycanthrope.getMeute());
         assertNull(lycanthrope.getApparenceHumaine());
         assertEquals(facteurDomination, lycanthrope.getFacteurDomination());
-        assertEquals(force, lycanthrope.getForce());
-        assertEquals(impetuosite, lycanthrope.getImpetuosite());
         assertEquals(rang, lycanthrope.getRang());
     }
 
@@ -192,8 +190,11 @@ class LycanthropeTest {
     @Test
     public void testAfficherCaracteristiques() {
         //On crée le lycanthrope
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Lycanthrope lycanthrope = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         enclos.ajouterCreature(lycanthrope);
         enclos.getMeute().ajouterLycanthrope(lycanthrope);

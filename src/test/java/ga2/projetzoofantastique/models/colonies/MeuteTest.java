@@ -18,6 +18,7 @@ class MeuteTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
 
         //On initialise les valeurs souhaitées
@@ -36,6 +37,7 @@ class MeuteTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
 
         //On initialise les valeurs souhaitées
@@ -57,6 +59,7 @@ class MeuteTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
 
         //On modifie les valeurs
@@ -72,7 +75,10 @@ class MeuteTest {
     @Test
     public void testAfficherCaracteristiques() {
         //On crée la meute
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         CoupleAlpha coupleAlpha = new CoupleAlpha();
         Lycanthrope lycanthropeMale = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
@@ -99,7 +105,10 @@ class MeuteTest {
     @Test
     public void testAfficherCaracteristiquesLycanthropes() {
         //On crée la meute
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         CoupleAlpha coupleAlpha = new CoupleAlpha();
         Lycanthrope lycanthrope1 = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
@@ -125,7 +134,10 @@ class MeuteTest {
     @Test
     public void testConstituerCoupleAlpha() {
         //On crée la meute
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Lycanthrope lycanthrope1 = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
         Lycanthrope lycanthrope2 = new Lycanthrope("Lycanthrope2", "femelle", 20, 20, null);
@@ -166,7 +178,10 @@ class MeuteTest {
     @Test
     public void testDecroitreRangs() {
         //On crée la meute
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Lycanthrope lycanthrope1 = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
         Lycanthrope lycanthrope2 = new Lycanthrope("Lycanthrope2", "femelle", 20, 20, null);
@@ -212,7 +227,10 @@ class MeuteTest {
     @Test
     public void testDeclarerLycanthropesOmega() {
         //On crée la meute
+        Maitre maitre = new Maitre("Maitre1", "male");
+        ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Lycanthrope lycanthrope1 = new Lycanthrope("Lycanthrope1", "male", 20, 20, null);
         Lycanthrope lycanthrope2 = new Lycanthrope("Lycanthrope2", "femelle", 20, 20, null);
@@ -241,6 +259,13 @@ class MeuteTest {
         lycanthrope4.setForce(3);
         lycanthrope5.setForce(1);
         lycanthrope6.setForce(1);
+
+        lycanthrope1.setImpetuosite(100);
+        lycanthrope2.setImpetuosite(100);
+        lycanthrope3.setImpetuosite(3);
+        lycanthrope4.setImpetuosite(3);
+        lycanthrope5.setImpetuosite(1);
+        lycanthrope6.setImpetuosite(1);
 
         lycanthrope1.setFacteurDomination(24);
         lycanthrope2.setFacteurDomination(24);

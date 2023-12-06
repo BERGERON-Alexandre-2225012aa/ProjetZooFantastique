@@ -18,6 +18,7 @@ class HurlementTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Hurlement hurlement = new Hurlement("appartenance", meute);
 
@@ -34,6 +35,7 @@ class HurlementTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Hurlement hurlement = new Hurlement("appartenance", meute);
 
@@ -51,6 +53,7 @@ class HurlementTest {
         Maitre maitre = new Maitre("Maitre1", "male");
         ZooFantastique zooFantastique = new ZooFantastique("ZooFantastique1", maitre, 10);
         Enclos enclos = new Enclos("Enclos1", 200, 20);
+        zooFantastique.ajouterEnclos(enclos);
         Meute meute = new Meute(enclos);
         Hurlement hurlement1 = new Hurlement("appartenance", meute);
         Hurlement hurlement2 = new Hurlement("domination", null);
